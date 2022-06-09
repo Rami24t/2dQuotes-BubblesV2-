@@ -4,9 +4,11 @@ html {
   font-family: "helvetica neue";
   font-size: 20px;
   font-weight: 200;
+  filter: blur(1px);
 }
 body {
   margin: 0;
+  user-select: none;
 }
 *,
 *:before,
