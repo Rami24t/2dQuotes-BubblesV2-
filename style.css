@@ -4,16 +4,10 @@ html {
   font-family: "helvetica neue";
   font-size: 20px;
   font-weight: 200;
-  filter: blur(1px);
 }
 body {
   margin: 0;
   user-select: none;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
 }
 .panels {
   min-height: 100vh;
@@ -21,7 +15,7 @@ body {
   display: flex;
 }
 .panel {
-  background: #6b0f9c;
+  background: #000000;
   box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
   color: white;
   text-align: center;
@@ -79,6 +73,7 @@ body {
     sans-serif;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
   font-size: 2em;
+  filter: blur(1px);
 }
 .panel p:nth-child(2) {
   font-size: 4em;
