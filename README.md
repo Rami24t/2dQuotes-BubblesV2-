@@ -8,5 +8,5 @@ https://rami24t.github.io/2DQuotes-on-click-on-Flexy-Windows/
 
 ## Snapshot
 
-![Snapshot  image]("Screenshot from 2022-06-09 09-43-37.jpg" "Snapshot")
-<img title="a title" alt="Alt text" src="/Screenshot from 2022-06-09 09-43-37.jpg">
+Snapshot  image:
+<img title="Snapshot" alt="Snapshot  image" src="/Screenshot from 2022-06-09 09-43-37.jpg">
