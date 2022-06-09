@@ -1,6 +1,10 @@
-# 2DQuotes-on-click-on-Flexy-Windows
+# 2D Quotes
 
-Pure CSS/HTML 2D quotes that show up when user clicks on each letter. Based on flexy windows.
+## Pure CSS/HTML 2D quotes that show up when user clicks on each letter. Desktop design (based on flexible window panels)
+
+### Reveal a new quote every time you click on a new window panel. 
+
+### New images show up every new time the page is newly opened (not refreshed).
 
 # Test it out here in the live version:
 
