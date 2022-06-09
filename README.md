@@ -6,7 +6,7 @@
 
 ### New images show up every new time the page is newly opened (not refreshed).
 
-### Desktop design (based on flexible window panels)
+### Desktop/Laptop design. (based on flexible window panels)
 
 # Test it out here in the live version:
 
