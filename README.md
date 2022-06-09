@@ -8,6 +8,4 @@ https://rami24t.github.io/2DQuotes-on-click-on-Flexy-Windows/
 
 ## Snapshot
 
-Screenshot from 2022-06-09 09-43-37.jpg
-Screenshot from 2022-06-09 09-43-37.jpg
-/home/user/GitProjects/2D Quotes/Screenshot from 2022-06-09 09-43-37.jpg
+![Snapshot  image](Screenshot from 2022-06-09 09-43-37.jpg "Snapshot")
