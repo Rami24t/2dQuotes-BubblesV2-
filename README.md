@@ -2,6 +2,8 @@
 
 ## Pure CSS/HTML 2D quotes that show up when user clicks on each word.
 
+#### New images show up every time a user opens the page. (not on refresh)
+
 #### Reveal a new quote every time you click on a new window panel. 
 
 #### New images show up every new time the page is newly opened (not refreshed).
