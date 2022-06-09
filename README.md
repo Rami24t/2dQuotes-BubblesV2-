@@ -1,10 +1,12 @@
 # 2D Quotes
 
-## Pure CSS/HTML 2D quotes that show up when user clicks on each word. Desktop design (based on flexible window panels)
+## Pure CSS/HTML 2D quotes that show up when user clicks on each word.
 
 ### Reveal a new quote every time you click on a new window panel. 
 
 ### New images show up every new time the page is newly opened (not refreshed).
+
+### Desktop design (based on flexible window panels)
 
 # Test it out here in the live version:
 
