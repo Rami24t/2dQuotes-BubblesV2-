@@ -1,7 +1,11 @@
+@font-face {
+  font-family: "2dq";
+  src: url(./occult-technique-cdnfonts/occult-t.ttf);
+}
 html {
   box-sizing: border-box;
   background: #000;
-  font-family: "Occult Technique", cursive, "Gill Sans", "Gill Sans MT", Calibri,
+  font-family: "2dq", cursive, "Gill Sans", "Gill Sans MT", Calibri,
     "Trebuchet MS", sans-serif;
   overflow: hidden;
 }
@@ -77,8 +81,6 @@ body:active > .c1 {
 }
 .panel p {
   text-transform: uppercase;
-  font-family: "Occult Technique", cursive, "Gill Sans", "Gill Sans MT", Calibri,
-    "Trebuchet MS", sans-serif;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
   font-size: 2em;
   filter: blur(0.5px);
