@@ -8,6 +8,8 @@
 
 ### Improved all effects when user clicks on a word and opens glass window.
 
+### Upgraded Fonts.
+
 ### Rotates to fit mobile screens. Started working on mobile design.
 
 ## Test it out here in the live version:
