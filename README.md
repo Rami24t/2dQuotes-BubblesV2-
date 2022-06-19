@@ -1,4 +1,4 @@
-# 2D Quote - Version 2+
+# 2D Quote - Version 2+ - A webpage artistic piece that I am crafting using CSS, Javascript, and HTML.
 
 ## New Features
 
