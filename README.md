@@ -27,7 +27,7 @@ Snapshot image from 18.06.2022:
 
 #### New images show up every time a user opens the page. (not on refresh)
 
-#### Reveal the vertical quote when the user clicks on any word from the horizental quote.
+#### Reveal the vertical quote when the user clicks on any word from the horizontal quote.
 
 #### New images show up every new time the page is newly opened (not refreshed).
 
