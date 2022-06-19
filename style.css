@@ -200,6 +200,26 @@ body:active > .c1 {
   }
   /* .panel {
   } */
+  .panel:hover > p:first-child {
+    transform: translateY(0);
+  }
+  .panel:hover > p:last-child {
+    transform: translateY(0);
+  }
+  .panel:hover {
+    flex: 5;
+    filter: blur(0px);
+    font-size: 4.2vmax;
+  }
+  .panels:hover .panel:not(.panel:hover) {
+    filter: blur(2px) sepia(40%);
+  }
+  .panels:hover .panel:not(.panel:hover) p:nth-child(2) {
+    font-size: 2.1vmax;
+  }
+  .panel:hover p:nth-child(2) {
+    font-size: 8.4vmax;
+  }
 }
 
 footer {
