@@ -14,7 +14,7 @@
 
 ## Test it out here in the live version:
 
-https://rami24t.github.io/2DQuotes-on-click-on-Flexy-Windows/
+https://rami24t.github.io/2dQuotes-BubblesV2-/
 
 ## Snapshots
 
