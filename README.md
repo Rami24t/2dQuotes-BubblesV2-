@@ -6,7 +6,7 @@
 
 ### Animated Circles with individual floating and movement animations.
 
-### Improved all effects when user clicks on a word.
+### Improved all effects when user clicks on a word and opens glass window.
 
 ### Rotates to fit mobile screens. Started working on mobile design.
 
