@@ -182,10 +182,10 @@ body:active > .c1 {
   html {
     width: 100vmax;
     height: 100vmin; */
-    /* transform: rotate(90deg) translateX(27.5%) translateY(61%); */
-    /* bottom: 27.5%;
+/* transform: rotate(90deg) translateX(27.5%) translateY(61%); */
+/* bottom: 27.5%;
     right: -61%; */
-    /* transform: rotate(90deg);
+/* transform: rotate(90deg);
     transform-origin: right top;
     width: 100vmax;
     height: 100vmin;
@@ -195,22 +195,22 @@ body:active > .c1 {
     right: 100%;
   } */
 
-  @media screen and (min-height: 500px) and (max-width: 500px){
-    html{
-      position: relative;
-    }
-    body { 
-      transform: rotate(-90deg); 
-      transform-origin: left top;
-      width: 100vmax;
-      height: 100vmin;
-      position: fixed;
-      top: 100%; 
-      left: 0;
-    }
+@media screen and (min-height: 500px) and (max-width: 500px) {
+  html {
+    position: relative;
   }
+  body {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vmax;
+    height: 100vmin;
+    position: fixed;
+    top: 100%;
+    left: 0;
+  }
+}
 
-  /*   html {
+/*   html {
     transform: rotate(90deg);
     transform-origin: right top;
     width: 100vmax;
@@ -220,4 +220,3 @@ body:active > .c1 {
     top: 100%;
     left: 0;
   } */
-}
