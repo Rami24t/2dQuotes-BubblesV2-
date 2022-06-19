@@ -12,7 +12,7 @@
     <title>2D Quotes</title>
   </head>
   <body>
-    <div class="panels">
+    <div class="panels" onclick="document.querySelector('#music-1').play();">
       <div class="panel panel1">
         <p>Live</p>
         <p>Life</p>
@@ -33,7 +33,10 @@
         <p>a</p>
         <p>Candle</p>
       </div>
-      <div class="panel panel5">
+      <div
+        class="panel panel5"
+        onclick="document.querySelector('#music-1').play();"
+      >
         <p>The</p>
         <p>Dream</p>
         <p>Is Free</p>
@@ -42,18 +45,117 @@
     <div class="cursor c1"></div>
     <div class="cursor c3"></div>
     <div class="cursor c2"></div>
+    <div class="bubble b1"></div>
+    <div class="bubble b1"></div>
+    <div class="bubble b2"></div>
+    <div class="bubble b3"></div>
+    <div class="bubble b4"></div>
+    <div class="bubble b5"></div>
+    <div class="bubble b6"></div>
+    <div class="bubble b7"></div>
+    <div class="bubble b8"></div>
+    <div class="bubble b9"></div>
+    <div class="bubble b10"></div>
+    <div class="bubble b11"></div>
+    <div class="bubble b12"></div>
+    <div class="bubble b13"></div>
+    <div class="bubble b14"></div>
+    <div class="bubble b15"></div>
+    <div class="bubble b16"></div>
+    <div class="bubble b17"></div>
+    <div class="bubble b18"></div>
+    <div class="bubble b19"></div>
+    <div class="bubble b20"></div>
+    <div class="bubble b21"></div>
+    <div class="bubble b22"></div>
+    <div class="bubble b23"></div>
+    <div class="bubble b24"></div>
+    <div class="bubble b25"></div>
+    <div class="bubble b26"></div>
+    <div class="bubble b27"></div>
+    <div class="bubble b28"></div>
+    <div class="bubble b29"></div>
+    <div class="bubble b30"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <audio
+      id="music-1"
+      src="./mixkit-ode-to-loneliness-520.mp3"
+      preload="auto"
+      volume="0.1"
+      loop
+    ></audio>
     <script>
       document.querySelector("body").style.cursor = "none";
       document.querySelector("body").append("");
       const c1 = document.querySelector(".c1");
       const c2 = document.querySelector(".c2");
       const c3 = document.querySelector(".c3");
+      const bubble = document.querySelector(".bubble");
+      document.querySelector("#music-1").volume = 0.2;
       const movedCursor = (e) => {
         const mouseY = e.clientY;
         const mouseX = e.clientX;
         c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
         c2.style.transform = c1.style.transform;
-
         // c3.style.transition = `all ${Math.random() * 10}s`;
       };
       function updateSize() {
@@ -61,10 +163,33 @@
         c3.style.height = c3.style.width;
         c3.style.transform = `translate3d(${Math.round(
           Math.random() * 40
-        )}vw, ${Math.round(Math.random() * 40)}vh,0)`;
+        )}vmax, ${Math.round(Math.random() * 40)}vmin,0)`;
         c2.style.transition = `all ${Math.round(Math.random() * 50000)}ms`;
+        document.querySelector("#music-1").volume = Math.random() / 2.5;
       }
       setInterval(updateSize, 10000);
+      // Bubbles
+      const bubblesArray = [].slice.call(document.querySelectorAll(".bubble"));
+
+      const delay = async (ms = 222) =>
+        new Promise((resolve) => setTimeout(resolve, ms));
+
+      async function updateBubble(aBubble) {
+        aBubble.style.height = aBubble.style.width = `${Math.round(
+          Math.random() * 30
+        )}vmin`;
+        aBubble.style.transform = `translate3d(${Math.round(
+          Math.random() * 110
+        )}vmax, ${Math.round(Math.random() * 110)}vmin,0)`;
+        aBubble.style.opacity = "0.4";
+      }
+      setInterval(async () => {
+        for (let i = 0; i < bubblesArray.length; i += 1) {
+          await delay(222);
+          updateBubble(bubblesArray[i]);
+          console.log(i);
+        }
+      }, 22000);
 
       window.addEventListener("mousemove", movedCursor);
     </script>

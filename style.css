@@ -1,26 +1,31 @@
 html {
   box-sizing: border-box;
-  background: #000000;
-  font-family: "helvetica neue";
-  font-size: 20px;
-  font-weight: 200;
+  background: #000;
+  font-family: "Occult Technique", cursive, "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+  overflow: hidden;
 }
 body {
   margin: 0;
   user-select: none;
   position: relative;
+  overflow: hidden;
+}
+body:active > .c1 {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #fff;
 }
 .panels {
-  min-height: 100vh;
+  min-height: 100vmin;
   overflow: hidden;
   display: flex;
 }
 .panel {
-  background: #000000;
+  background-color: #000;
   box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.03);
-  color: white;
+  color: #fff;
   text-align: center;
-  align-items: center;
   transition: filter 1s, font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
     flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
   font-size: 20px;
@@ -31,7 +36,8 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  filter: blur(0.5px);
+  filter: blur(1px);
+  width: 20vmax;
 }
 .panel1 {
   background-image: url(https://source.unsplash.com/1501x1501);
@@ -48,7 +54,7 @@ body {
 .panel5 {
   background-image: url(https://source.unsplash.com/1501x1500?dream);
 }
-.panel > * {
+.panel > p {
   margin: 0;
   width: 100%;
   transition: transform 0.5s;
@@ -102,6 +108,21 @@ body {
   border: 2px solid #fff;
   border-radius: 50%;
   position: fixed;
+  transition: width 1ms linear, height 1ms linear;
+  z-index: 999999;
+}
+.c1::before {
+  content: "";
+  border-radius: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 78%;
+  border: 1px solid #000;
+  height: 78%;
+  pointer-events: none;
+  opacity: 0.26;
 }
 .c2 {
   width: 7px;
@@ -121,7 +142,7 @@ body {
   height: 2px;
   border-radius: 50%;
   transition: all 10s;
-  opacity: 0.7;
+  opacity: 0.6;
   position: absolute;
   background: radial-gradient(
     rgba(64, 0, 255, 0),
@@ -129,4 +150,74 @@ body {
     rgba(0, 0, 255, 0.3),
     rgba(0, 0, 255, 0)
   );
+  filter: blur(1px);
+}
+#music-1 {
+  transition: all 10s;
+}
+.bubble {
+  min-height: 2px;
+  pointer-events: none;
+  min-height: 2px;
+  top: -15vh;
+  right: 100vw;
+  width: 2px;
+  height: 2px;
+  transition: all 22s;
+  filter: blur(2px);
+  border-radius: 50%;
+  opacity: 0;
+  position: absolute;
+  background-color: #2f36302d;
+  background: radial-gradient(
+      rgba(64, 0, 255, 0),
+      rgb(0, 255, 217, 0.1),
+      rgba(0, 0, 255, 0.3),
+      rgba(0, 0, 255, 0)
+    ),
+    #29412c2c;
+}
+
+/* @media screen and (max-width: 500px) {
+  html {
+    width: 100vmax;
+    height: 100vmin; */
+    /* transform: rotate(90deg) translateX(27.5%) translateY(61%); */
+    /* bottom: 27.5%;
+    right: -61%; */
+    /* transform: rotate(90deg);
+    transform-origin: right top;
+    width: 100vmax;
+    height: 100vmin;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    right: 100%;
+  } */
+
+  @media screen and (min-height: 500px) and (max-width: 500px){
+    html{
+      position: relative;
+    }
+    body { 
+      transform: rotate(-90deg); 
+      transform-origin: left top;
+      width: 100vmax;
+      height: 100vmin;
+      position: fixed;
+      top: 100%; 
+      left: 0;
+    }
+  }
+
+  /*   html {
+    transform: rotate(90deg);
+    transform-origin: right top;
+    width: 100vmax;
+    height: 100vmin;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  } */
 }
