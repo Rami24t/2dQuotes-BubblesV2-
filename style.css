@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "2dq";
+  font-family: "2dqb";
   src: url(./fonts/occult-t.ttf);
 }
 html {
   box-sizing: border-box;
   background: #000;
-  font-family: "2dq", cursive, "Gill Sans", "Gill Sans MT", Calibri,
+  font-family: "2dqb", cursive, "Gill Sans", "Gill Sans MT", Calibri,
     "Trebuchet MS", sans-serif;
   overflow: hidden;
   font-size: 1.2rem;
@@ -196,9 +196,10 @@ body:active > .c1 {
     position: fixed;
     top: 100%;
     left: 0;
+    cursor: auto !important;
   }
-  .panel {
-  }
+  /* .panel {
+  } */
 }
 
 footer {
