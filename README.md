@@ -29,7 +29,7 @@ Snapshot image from 18.06.2022:
 
 #### Reveal the vertical quote when the user clicks on any word from the horizontal quote.
 
-#### New images show up every new time the page is newly opened (not refreshed).
+#### New images show up every new time the page is newly opened.
 
 #### Desktop/Laptop design. (based on flexible glass windows).
 
