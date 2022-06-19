@@ -8,6 +8,7 @@ html {
   font-family: "2dq", cursive, "Gill Sans", "Gill Sans MT", Calibri,
     "Trebuchet MS", sans-serif;
   overflow: hidden;
+  font-size: 1.2rem;
 }
 body {
   margin: 0;
@@ -30,9 +31,6 @@ body:active > .c1 {
   box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.03);
   color: #fff;
   text-align: center;
-  transition: filter 1s, font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
-    flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
-  font-size: 20px;
   background-size: cover;
   background-position: center;
   flex: 1;
@@ -42,6 +40,8 @@ body:active > .c1 {
   flex-direction: column;
   filter: blur(1px);
   width: 20vmax;
+  height: 100vmin;
+  font-size: 2.1vmax;
 }
 .panel1 {
   background-image: url(https://source.unsplash.com/1501x1501);
@@ -59,6 +59,9 @@ body:active > .c1 {
   background-image: url(https://source.unsplash.com/1501x1500?dream);
 }
 .panel > p {
+  text-transform: uppercase;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+  filter: blur(0.5px);
   margin: 0;
   width: 100%;
   transition: transform 0.5s;
@@ -67,44 +70,47 @@ body:active > .c1 {
   justify-content: center;
   align-items: center;
 }
-.panel > *:first-child {
+.panel,
+.panel p:nth-child(2) {
+  transition: filter 1s, font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+    flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
+}
+.panel > p:first-child {
   transform: translateY(-100%);
 }
-.panel:active > *:first-child {
+.panel:active > p:first-child {
   transform: translateY(0);
 }
-.panel > *:last-child {
+.panel > p:last-child {
   transform: translateY(100%);
 }
-.panel:active > *:last-child {
+.panel:active > p:last-child {
   transform: translateY(0);
 }
-.panel p {
-  text-transform: uppercase;
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
-  font-size: 2em;
-  filter: blur(0.5px);
-}
 .panel p:nth-child(2) {
-  font-size: 4em;
+  font-size: 4.2vmax;
 }
 .panel:active {
-  font-size: 40px;
   flex: 5;
   filter: blur(0px);
+  font-size: 4.2vmax;
 }
 .panels:active .panel:not(.panel:active) {
-  font-size: 10px;
   filter: blur(2px) sepia(40%);
 }
+.panels:active .panel:not(.panel:active) p:nth-child(2) {
+  font-size: 2.1vmax;
+}
+.panel:active p:nth-child(2) {
+  font-size: 8.4vmax;
+}
+
 .cursor {
   pointer-events: none;
   top: -1.5%;
   right: 99.4%;
 }
 .c1 {
-  /* top: -1.5%;
-  right: 99.4%; */
   width: 20px;
   height: 20px;
   border: 2px solid #fff;
@@ -128,8 +134,6 @@ body:active > .c1 {
 }
 .c2 {
   width: 7px;
-  /* top: -1.5%;
-  right: 99.4%; */
   height: 7px;
   border-radius: 50%;
   transition: all 5s;
@@ -180,23 +184,6 @@ body:active > .c1 {
     #29412c2c;
 }
 
-/* @media screen and (max-width: 500px) {
-  html {
-    width: 100vmax;
-    height: 100vmin; */
-/* transform: rotate(90deg) translateX(27.5%) translateY(61%); */
-/* bottom: 27.5%;
-    right: -61%; */
-/* transform: rotate(90deg);
-    transform-origin: right top;
-    width: 100vmax;
-    height: 100vmin;
-    overflow-x: hidden;
-    position: absolute;
-    top: 100%;
-    right: 100%;
-  } */
-
 @media screen and (min-height: 500px) and (max-width: 500px) {
   html {
     position: relative;
@@ -210,15 +197,30 @@ body:active > .c1 {
     top: 100%;
     left: 0;
   }
+  .panel {
+  }
 }
 
-/*   html {
-    transform: rotate(90deg);
-    transform-origin: right top;
-    width: 100vmax;
-    height: 100vmin;
-    overflow-x: hidden;
-    position: absolute;
-    top: 100%;
-    left: 0;
-  } */
+footer {
+  position: fixed;
+  bottom: 0%;
+  left: 0%;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  animation: roll 200s linear infinite;
+  color: #000;
+  letter-spacing: 2px;
+}
+footer a {
+  color: rgb(18, 28, 45);
+  text-decoration: wavy underline dotted double darkblue;
+}
+@keyframes roll {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 110%;
+  }
+}
