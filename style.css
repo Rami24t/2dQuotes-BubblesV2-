@@ -39,7 +39,7 @@ body:active > .c1 {
   align-items: center;
   display: flex;
   flex-direction: column;
-  filter: blur(1px);
+  filter: blur(0.052vmax);
   width: 20vmax;
   height: 100vmin;
   font-size: 1vmax;
@@ -62,7 +62,7 @@ body:active > .c1 {
 .panel > p {
   text-transform: uppercase;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
-  filter: blur(0.5px);
+  filter: blur(0.026vmax);
   margin: 0;
   width: 100%;
   transition: transform 0.5s;
@@ -97,7 +97,7 @@ body:active > .c1 {
   font-size: 5vmax;
 }
 .panels:active .panel:not(.panel:active) {
-  filter: blur(2px) sepia(40%);
+  filter: blur(0.104vmax) sepia(40%);
 }
 .panels:active .panel:not(.panel:active) p:nth-child(2) {
   font-size: 2.5vmax;
@@ -157,7 +157,7 @@ body:active > .c1 {
     rgba(0, 0, 255, 0.3),
     rgba(0, 0, 255, 0)
   );
-  filter: blur(1px);
+  filter: blur(0.052vmax);
 }
 #music-1 {
   transition: all 10s;
@@ -171,7 +171,7 @@ body:active > .c1 {
   width: 2px;
   height: 2px;
   transition: all 22s;
-  filter: blur(2px);
+  filter: blur(0.104vmax);
   border-radius: 50%;
   opacity: 0;
   position: absolute;
@@ -184,7 +184,28 @@ body:active > .c1 {
     ),
     #29412c2c;
 }
-
+.panel:hover > p:first-child {
+  transform: translateY(0);
+}
+.panel:hover > p:last-child {
+  transform: translateY(0);
+}
+@media screen and (max-width: 600px) and (max-height: 600px) {
+  .panel:hover {
+    flex: 5;
+    filter: blur(0px);
+    font-size: 5vmax;
+  }
+  .panels:hover .panel:not(.panel:hover) {
+    filter: blur(0.104vmax) sepia(40%);
+  }
+  .panels:hover .panel:not(.panel:hover) p:nth-child(2) {
+    font-size: 2.5vmax;
+  }
+  .panel:hover p:nth-child(2) {
+    font-size: 10vmax;
+  }
+}
 @media screen and (orientation: portrait) {
   html {
     position: relative;
@@ -201,26 +222,7 @@ body:active > .c1 {
   }
   /* .panel {
   } */
-  .panel:hover > p:first-child {
-    transform: translateY(0);
-  }
-  .panel:hover > p:last-child {
-    transform: translateY(0);
-  }
-  .panel:hover {
-    flex: 5;
-    filter: blur(0px);
-    font-size: 5vmax;
-  }
-  .panels:hover .panel:not(.panel:hover) {
-    filter: blur(2px) sepia(40%);
-  }
-  .panels:hover .panel:not(.panel:hover) p:nth-child(2) {
-    font-size: 2.5vmax;
-  }
-  .panel:hover p:nth-child(2) {
-    font-size: 10vmax;
-  }
+
   body::after {
     color: red;
     content: "Please rotate screen \A \a View in landscape mode.";
@@ -313,7 +315,7 @@ footer a {
 @keyframes fade-in {
   from {
     opacity: 0.4;
-    filter: saturate(0%) contrast(0.7) blur(5px);
+    filter: saturate(0%) contrast(0.7) blur(0.26vmax);
   }
 }
 .panel:nth-child(even) {
@@ -340,7 +342,7 @@ footer a {
 @keyframes fade-in-2 {
   from {
     opacity: 0;
-    filter: blur(10px);
+    filter: blur(0.52vmax);
   }
 }
 
@@ -349,6 +351,6 @@ footer a {
     transform: scale(2) translateX(25%) translateY(-29%);
     filter: invert(100%);
     opacity: 0.9;
-    font-size: 1vmax;
+    font-size: 1.2vmax;
   }
 }
