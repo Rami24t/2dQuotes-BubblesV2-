@@ -184,13 +184,13 @@ body:active > .c1 {
     ),
     #29412c2c;
 }
-.panel:hover > p:first-child {
-  transform: translateY(0);
-}
-.panel:hover > p:last-child {
-  transform: translateY(0);
-}
 @media screen and (max-width: 600px) and (min-height: 600px) {
+  .panel:hover > p:first-child {
+    transform: translateY(0);
+  }
+  .panel:hover > p:last-child {
+    transform: translateY(0);
+  }
   .panel:hover {
     flex: 5;
     filter: blur(0px);

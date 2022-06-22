@@ -18,6 +18,33 @@ const movedCursor = (e) => {
   c2.style.transform = c1.style.transform;
   // c3.style.transition = `all ${Math.random() * 10}s`;
 };
+// let startmove = document.querySelector('.panel');
+// let startx = 0;
+// let starty = 0;
+// let dist = 0;
+// startmove.addEventListener("touchstart", function(eve){
+//   let touchobj = eve.changedTouches[0]; // erster Finger
+//   startx = parseInt(touchobj.clientX); // X/Y-Koordinaten relativ zum Viewport
+//   starty = parseInt(touchobj.clientY);
+//   moves.innerHTML = "touchstart bei ClientX: " + startx + "px ClientY: " + starty + "px";
+//   eve.preventDefault();
+// });
+
+// eve.changedTouches[0]
+// startmove.addEventListener("touchmove", function(eve){
+//   let touchobj = eve.changedTouches[0]; // erster Finger
+//   let distx = parseInt(touchobj.clientX) - startx;
+//   let disty = parseInt(touchobj.clientY) - starty;
+//   moves.innerHTML = "touchmove horizontal: " + distx + "px vertikal: " + disty + "px";  
+//   eve.preventDefault();
+// });
+
+// startmove.addEventListener("touchend", function(eve){
+//   let touchobj = eve.changedTouches[0]; // reference first touch point for this event
+//   moves.innerHTML = "touchend bei X-Koordinate: " + touchobj.clientX + "px Y-Koordinate: " + touchobj.clientY + "px";
+//   eve.preventDefault();
+// });
+
 
 
 function updateSize() {
@@ -51,3 +78,4 @@ setInterval(async () => {
 
 
 window.addEventListener("mousemove", movedCursor);
+window.addEventListener("touchmove", movedCursor);
