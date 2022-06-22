@@ -190,7 +190,7 @@ body:active > .c1 {
 .panel:hover > p:last-child {
   transform: translateY(0);
 }
-@media screen and (max-width: 600px) and (max-height: 600px) {
+@media screen and (max-width: 600px) and (min-height: 600px) {
   .panel:hover {
     flex: 5;
     filter: blur(0px);
@@ -224,12 +224,12 @@ body:active > .c1 {
   } */
 
   body::after {
-    color: red;
-    content: "Please rotate screen \A \a View in landscape mode.";
+    color: rgb(255, 0, 0);
+    content: "Please rotate screen. \A \a View in landscape mode.";
     white-space: pre;
     font-size: 8vmin;
     font-weight: bold;
-    border: 1px solid red;
+    border: 1px solid rgba(255, 0, 0, 0.5);
     position: absolute;
     top: 0%;
     right: 0;
@@ -244,39 +244,30 @@ body:active > .c1 {
     transform: rotate(90deg);
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgba(0, 0, 0, 0.7);
-    pointer-events: none;
     animation: rotate-scrn 10s infinite alternate;
+    pointer-events: none;
   }
   @keyframes rotate-scrn {
     100% {
-      transform: rotate(90deg);
-      opacity: 1;
-    }
-    75% {
       transform: rotate(170deg);
       opacity: 0;
     }
-    50% {
-      transform: rotate(90deg);
+    48%,
+    52% {
       opacity: 1;
+      transform: rotate(90deg);
     }
-    25% {
+    0% {
       transform: rotate(10deg);
       opacity: 0;
     }
-    0% {
-      transform: rotate(90deg);
-      opacity: 1;
-    }
   }
 }
-
 footer {
   position: fixed;
   bottom: 0%;
   left: 0%;
-  font-size: 1.22rem;
-  font-weight: 900;
+  font-size: min(1.2vmax, 1.22rem);
   font-weight: bold;
   text-align: center;
   animation: roll 200s linear infinite, animate-footer 5s 3s 1 backwards;
