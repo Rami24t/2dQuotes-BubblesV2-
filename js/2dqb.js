@@ -78,4 +78,5 @@ setInterval(async () => {
 
 
 window.addEventListener("mousemove", movedCursor);
+window.addEventListener("touchstart", movedCursor);
 window.addEventListener("touchmove", movedCursor);
