@@ -18,6 +18,12 @@ const movedCursor = (e) => {
   c2.style.transform = c1.style.transform;
   // c3.style.transition = `all ${Math.random() * 10}s`;
 };
+const movedTouch = (e) => {
+  const mouseY = e.changedTouches[0].clientY;
+  const mouseX = e.changedTouches[0].clientX;
+c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+c2.style.transform = c1.style.transform;
+};
 // let startmove = document.querySelector('.panel');
 // let startx = 0;
 // let starty = 0;
@@ -29,7 +35,6 @@ const movedCursor = (e) => {
 //   moves.innerHTML = "touchstart bei ClientX: " + startx + "px ClientY: " + starty + "px";
 //   eve.preventDefault();
 // });
-
 // eve.changedTouches[0]
 // startmove.addEventListener("touchmove", function(eve){
 //   let touchobj = eve.changedTouches[0]; // erster Finger
@@ -38,7 +43,6 @@ const movedCursor = (e) => {
 //   moves.innerHTML = "touchmove horizontal: " + distx + "px vertikal: " + disty + "px";  
 //   eve.preventDefault();
 // });
-
 // startmove.addEventListener("touchend", function(eve){
 //   let touchobj = eve.changedTouches[0]; // reference first touch point for this event
 //   moves.innerHTML = "touchend bei X-Koordinate: " + touchobj.clientX + "px Y-Koordinate: " + touchobj.clientY + "px";
@@ -78,5 +82,4 @@ setInterval(async () => {
 
 
 window.addEventListener("mousemove", movedCursor);
-window.addEventListener("touchstart", movedCursor);
-window.addEventListener("touchmove", movedCursor);
+window.addEventListener("touchmove", movedTouch);
