@@ -16,13 +16,25 @@ const movedCursor = (e) => {
     const mouseX = e.clientX;
   c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
   c2.style.transform = c1.style.transform;
-  // c3.style.transition = `all ${Math.random() * 10}s`;
+  bubblesArray.forEach(element => {
+//    console.log(Math.round(element.style.transform.slice(12,14)*window.innerWidth/100) ,Math.round(element.style.transform.slice(20,22)*window.innerHeight/100), mouseX, mouseY);
+    if( Math.abs( Math.round(element.style.transform.slice(12,14)*window.innerWidth/100)-mouseX) < 9 && Math.abs(Math.round(element.style.transform.slice(20,22)*window.innerHeight/100) - mouseY) < 9)
+{   // alert(`${mouseX} : ${mouseY}`);
+  element.style.transform = 'translate3d(00vmin, 00vmax,0))';
+  }
+  });
+  if(Math.abs(Math.round(c2.style.transform.slice(12,14)*window.innerWidth/100) - mouseX)<6 &&  Math.abs(Math.round(c2.style.transform.slice(12,14)*window.innerHeight/100) - mouseY<6))
+{  c2.style.transform = 'translate3d(0vmin, 0vmax,0))';
+ // alert(Math.round(c3.style.transform.slice(12,14)*window.innerWidth/100), Math.round(c3.style.transform.slice(12,14)*window.innerHeight/100), mouseX, mouseY);
+}  // c3.style.transition = `all ${Math.random() * 10}s`;
+  // if(bubble.style.transform.
 };
 const movedTouch = (e) => {
   const mouseY = e.changedTouches[0].clientY;
   const mouseX = e.changedTouches[0].clientX;
 c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
 c2.style.transform = c1.style.transform;
+// console.log(bubble.style.transform);
 };
 // let startmove = document.querySelector('.panel');
 // let startx = 0;
@@ -56,7 +68,7 @@ function updateSize() {
   c3.style.height = c3.style.width;
   c3.style.transform = `translate3d(${Math.round(    Math.random() * 40  )}vmax, ${Math.round(Math.random() * 40)}vmin,0)`;
   c2.style.transition = `all ${Math.round(Math.random() * 50000)}ms`;
-  document.querySelector("#music-1").volume = Math.random() / 2.5;
+  document.querySelector("#music-1").volume = (Math.random()/4);
 }
 
 setInterval(updateSize, 10000);
@@ -69,7 +81,9 @@ const delay = async (ms = 222) =>  new Promise((resolve) => setTimeout(resolve, 
 
 async function updateBubble(aBubble) {
   aBubble.style.height = aBubble.style.width = `${Math.round(    Math.random() * 30  )}vmin`;
-  aBubble.style.transform = `translate3d(${Math.round(    Math.random() * 110)}vmax, ${Math.round(Math.random() * 110)}vmin,0)`;
+  aBubble.style.transform = `translate3d(${Math.round(Math.random() * 110)>9 ? Math.round(Math.random() * 110) : '0'+Math.round(Math.random() * 110).toString()}vmax, ${Math.round(Math.random() * 110)}vmin,0)`;
+  aBubble.style.backgroundColor = `rgba(${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.random()/1.6})`;
+//  console.log(aBubble.style.backgroundColor);
   aBubble.style.opacity = "0.4";
 }
 
@@ -77,7 +91,8 @@ setInterval(async () => {
   for (let i = 0; i < bubblesArray.length; i += 1) {
     await delay(222);
     updateBubble(bubblesArray[i]);
-    console.log(i);  }
+  //  console.log(i);
+}
 }, 22000);
 
 
