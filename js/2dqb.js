@@ -50,19 +50,23 @@ bubblesArray.forEach(element => {
   //  console.log(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2)) , Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 )),Math.round(Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2)), Math.round(Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2)));
     if(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2 -Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2 ))) < 9 && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 -  Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2  ))) < 9 )
   {
+  if(Math.random()>0.5)
+  popSFX= popSFX1;
+  else
+  popSFX= popSFX2;
+  if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/4)
+  popSFX.volume = Math.random()*0.25;
+  else if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/2)
+  popSFX.volume = Math.random()*0.25+0.25;
+  else if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/1.5)
+  popSFX.volume = Math.random()*0.25+0.5;
+  else
+  popSFX.volume = Math.random()*0.25+0.75;
+  popSFX.play();
+  console.log(element.style.width);
   element.style.transform = "";
   element.style.width = element.style.height = "5px";
   element.style.display = "none";
-  if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/4)
-  popSFX1.volume = Math.random()*0.25;
-  else if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/2)
-  popSFX1.volume = Math.random()*0.25+0.25;
-  else if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/1.5)
-  popSFX1.volume = Math.random()*0.25+0.5;
-  else
-  popSFX1.volume = Math.random()*0.25+0.75;
-  popSFX1.play();
-  //console.log(element.style.width.substring(0, indexOf('vmin')))
   }
     });
 };
