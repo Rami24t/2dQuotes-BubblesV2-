@@ -42,9 +42,7 @@ element.style.display = "none";
 const movedTouch = (e) => {
   const mouseY = e.changedTouches[0].clientY;
   const mouseX = e.changedTouches[0].clientX;
-c2.style.transform = c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-c2.style.opacity = c1.style.opacity = '0.2';
-c1.style.height = c1.style.width = '16px';
+c2.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
 bubblesArray.forEach(element => {
 // console.log(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2, Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2);
 // console.log(mouseX, mouseY);
