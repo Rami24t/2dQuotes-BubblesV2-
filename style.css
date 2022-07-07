@@ -185,7 +185,7 @@ body:active > .c1 {
     ),
     #29412c2c;
 }
-@media only screen and (hover: none) and (pointer: coarse) and (max-width: 600px) or (max-height: 600px) {
+@media only screen and (hover: none) and (pointer: coarse) and (max-height: 600px) {
   .panel:hover > p:first-child {
     transform: translateY(0);
   }
@@ -223,7 +223,9 @@ body:active > .c1 {
   .c1::before {
     display: none;
   }
-
+  .c2 {
+    opacity: 0.1;
+  }
   html {
     position: relative;
   }
