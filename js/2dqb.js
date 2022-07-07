@@ -16,8 +16,8 @@ const movedCursor = (e) => {
   c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
   c2.style.transform = c1.style.transform;
   bubblesArray.forEach(element => {
-//  console.log(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2)) , Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 )),Math.round(Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2)), Math.round(Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2)));
-  if(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2 -Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2 ))) < 9 && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 -  Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2  ))) < 9 )
+// console.log(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2)) , Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 )),Math.round(Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2)), Math.round(Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2)));
+if(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2 -Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2 ))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 -  Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2  ))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) )
 {
 if(Math.random()>0.5)
 popSFX= popSFX1;
@@ -32,9 +32,9 @@ popSFX.volume = Math.random()*0.25+0.5;
 else
 popSFX.volume = Math.random()*0.25+0.75;
 popSFX.play();
-console.log(element.style.width);
-element.style.transform = "";
-element.style.width = element.style.height = "5px";
+// element.style.transform = '';
+element.style.width = element.style.height = "0";
+element.style.opacity = '0';
 element.style.display = "none";
 }
   });
@@ -48,14 +48,14 @@ c2.style.transform = c1.style.transform;
 // console.log(bubble.style.transform);
 bubblesArray.forEach(element => {
   //  console.log(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2)) , Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 )),Math.round(Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2)), Math.round(Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2)));
-    if(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2 -Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2 ))) < 9 && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 -  Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2  ))) < 9 )
+    if(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2 -Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2 ))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 -  Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2  ))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) )
   {
   if(Math.random()>0.5)
   popSFX= popSFX1;
   else
   popSFX= popSFX2;
   if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/4)
-  popSFX.volume = Math.random()*0.25;
+  popSFX.volume = Math.random()*0.25+0.01;
   else if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/2)
   popSFX.volume = Math.random()*0.25+0.25;
   else if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/1.5)
@@ -63,9 +63,9 @@ bubblesArray.forEach(element => {
   else
   popSFX.volume = Math.random()*0.25+0.75;
   popSFX.play();
-  console.log(element.style.width);
-  element.style.transform = "";
-  element.style.width = element.style.height = "5px";
+  element.style.transform = '';
+  element.style.width = element.style.height = "2px";
+  element.style.opacity = 0;
   element.style.display = "none";
   }
     });
@@ -114,8 +114,10 @@ const bubblesArray = [].slice.call(document.querySelectorAll(".bubble"));
 const delay = async (ms = 222) =>  new Promise((resolve) => setTimeout(resolve, ms));
 
 async function updateBubble(aBubble) {
+  if(aBubble.style.display != '')
+   aBubble.style.display = '';
   aBubble.style.height = aBubble.style.width = `${Math.round(Math.random() * 30)}vmin`;
-  aBubble.style.transform = `translate3d(${(Math.round(Math.random() * 110)).toString().padStart(2)}vmax, ${(Math.round(Math.random() * 110)).toString().padStart(2)}vmin,0)`;
+  aBubble.style.transform = `translate3d(${(Math.round(Math.random() * 110)).toString().padStart(3)}vmax, ${(Math.round(Math.random() * 110)).toString().padStart(3)}vmin,0)`;
   aBubble.style.backgroundColor = `rgba(${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.random()/1.4})`;
 //  console.log(aBubble.style.backgroundColor);
   aBubble.style.opacity = "0.4";

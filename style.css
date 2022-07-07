@@ -10,6 +10,7 @@ html {
     "Trebuchet MS", sans-serif;
   overflow: hidden;
   font-size: 1.2rem;
+  filter: brightness(1.1);
 }
 body {
   margin: 0;
