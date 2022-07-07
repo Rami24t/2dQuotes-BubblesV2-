@@ -109,6 +109,7 @@ setInterval(updateSize, 10000);
 
 
 // Bubbles
+const bubblesArray = [].slice.call(document.querySelectorAll(".bubble"));
 
 const delay = async (ms = 222) =>  new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -127,7 +128,7 @@ setInterval(async () => {
   for (let i = 0; i < bubblesArray.length; i += 1) {
     await delay(222);
     updateBubble(bubblesArray[i]);
-  //  console.log(i);
+    console.log(i);
 }
 }, 22000);
 
@@ -137,17 +138,15 @@ function substringV2(ts , stringA , stringB) {
   let b= ts.indexOf(stringB || 'vmax');
   return ts.substring(a+1,b).trim();
   }
-  
 
 
-if(( 'ontouchstart' in window ) ||
-( navigator.maxTouchPoints > 0 ) ||
-( navigator.msMaxTouchPoints > 0 )){
-window.addEventListener("touchmove", movedTouch);
-const bubblesArray = [].slice.call(document.querySelectorAll(".bubble") , -7);
-}
+  if( ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0) )
+  {
+    bubblesArray.splice(0,57);
+    window.addEventListener("touchmove", movedTouch);
+  }
 else
-{
-window.addEventListener("mousemove", movedCursor);
-const bubblesArray = [].slice.call(document.querySelectorAll(".bubble"));
-}
+  {
+//  bubblesArray.splice(0,57);
+  window.addEventListener("mousemove", movedCursor);
+  }
