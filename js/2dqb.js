@@ -42,10 +42,15 @@ element.style.display = "none";
 const movedTouch = (e) => {
   const mouseY = e.changedTouches[0].clientY;
   const mouseX = e.changedTouches[0].clientX;
-c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-c2.style.transform = c1.style.transform;
+c2.style.transform = c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+c2.style.opacity = c1.style.opacity = '0.2';
+c1.style.height = c1.style.width = '16px';
 bubblesArray.forEach(element => {
-    if(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2 -Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2 ))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 -  Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2  ))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) )
+// console.log(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2, Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2);
+// console.log(mouseX, mouseY);
+e.preventDefault();
+// 10 , 7 
+    if(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2 -Math.abs(mouseX))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 -  Math.abs(mouseY))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) )
   {
   if(Math.random()>0.5)
   popSFX= popSFX1;
@@ -117,6 +122,7 @@ async function updateBubble(aBubble) {
   aBubble.style.transform = `translate3d(${(Math.round(Math.random() * 110)).toString().padStart(3)}vmax, ${(Math.round(Math.random() * 110)).toString().padStart(3)}vmin,0)`;
   aBubble.style.backgroundColor = `rgba(${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.random()/1.4})`;
 //  console.log(aBubble.style.backgroundColor);
+if(aBubble.style.opacity!="0.4")
   aBubble.style.opacity = "0.4";
 }
 
