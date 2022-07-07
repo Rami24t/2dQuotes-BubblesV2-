@@ -185,26 +185,9 @@ body:active > .c1 {
     ),
     #29412c2c;
 }
-@media only screen and (hover: none) and (pointer: coarse) and (max-height: 600px) {
-  .panel:hover > p:first-child {
-    transform: translateY(0);
-  }
-  .panel:hover > p:last-child {
-    transform: translateY(0);
-  }
-  .panel:hover {
-    flex: 5;
-    filter: blur(0px);
-    font-size: 5vmax;
-  }
+@media only screen and (hover: none) and (pointer: coarse) and (max-height: 620px) {
   .panels:hover .panel:not(.panel:hover) {
     filter: blur(0.1vmax) sepia(40%);
-  }
-  .panels:hover .panel:not(.panel:hover) p:nth-child(2) {
-    font-size: 2.5vmax;
-  }
-  .panel:hover p:nth-child(2) {
-    font-size: 10vmax;
   }
   .c1 {
     display: none;
