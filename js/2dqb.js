@@ -109,7 +109,6 @@ setInterval(updateSize, 10000);
 
 
 // Bubbles
-const bubblesArray = [].slice.call(document.querySelectorAll(".bubble"));
 
 const delay = async (ms = 222) =>  new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -143,7 +142,12 @@ function substringV2(ts , stringA , stringB) {
 
 if(( 'ontouchstart' in window ) ||
 ( navigator.maxTouchPoints > 0 ) ||
-( navigator.msMaxTouchPoints > 0 ))
+( navigator.msMaxTouchPoints > 0 )){
 window.addEventListener("touchmove", movedTouch);
+const bubblesArray = [].slice.call(document.querySelectorAll(".bubble") , -7);
+}
 else
+{
 window.addEventListener("mousemove", movedCursor);
+const bubblesArray = [].slice.call(document.querySelectorAll(".bubble"));
+}
