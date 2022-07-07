@@ -16,7 +16,6 @@ const movedCursor = (e) => {
   c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
   c2.style.transform = c1.style.transform;
   bubblesArray.forEach(element => {
-// console.log(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2)) , Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 )),Math.round(Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2)), Math.round(Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2)));
 if(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2 -Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2 ))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 -  Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2  ))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) )
 {
 if(Math.random()>0.5)
@@ -32,8 +31,8 @@ popSFX.volume = Math.random()*0.25+0.5;
 else
 popSFX.volume = Math.random()*0.25+0.75;
 popSFX.play();
-// element.style.transform = '';
-element.style.width = element.style.height = "0";
+element.style.transform = '';
+element.style.width = element.style.height = "0px";
 element.style.opacity = '0';
 element.style.display = "none";
 }
@@ -45,9 +44,7 @@ const movedTouch = (e) => {
   const mouseX = e.changedTouches[0].clientX;
 c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
 c2.style.transform = c1.style.transform;
-// console.log(bubble.style.transform);
 bubblesArray.forEach(element => {
-  //  console.log(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2)) , Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 )),Math.round(Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2)), Math.round(Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2)));
     if(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2 -Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2 ))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 -  Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2  ))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) )
   {
   if(Math.random()>0.5)
@@ -64,8 +61,8 @@ bubblesArray.forEach(element => {
   popSFX.volume = Math.random()*0.25+0.75;
   popSFX.play();
   element.style.transform = '';
-  element.style.width = element.style.height = "2px";
-  element.style.opacity = 0;
+  element.style.width = element.style.height = "0px";
+  element.style.opacity = '0';
   element.style.display = "none";
   }
     });
