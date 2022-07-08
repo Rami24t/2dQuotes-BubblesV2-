@@ -211,7 +211,15 @@ body:active > .c1 {
   .c2 {
     opacity: 0.1;
   }
-  html {
+  html,
+  body,
+  .panel {
+    min-height: 95vh;
+  }
+  .panels {
+    min-width: 190vw;
+  }
+  /* html {
     position: relative;
   }
   body {
@@ -224,8 +232,6 @@ body:active > .c1 {
     left: 0;
     cursor: auto !important;
   }
-  /* .panel {
-  } */
 
   body::after {
     color: rgb(255, 0, 0);
@@ -266,6 +272,7 @@ body:active > .c1 {
       opacity: 0;
     }
   }
+   */
 }
 
 footer {
