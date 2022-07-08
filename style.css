@@ -211,11 +211,11 @@ body:active > .c1 {
   .c2 {
     opacity: 0.1;
   }
-  html,
   body,
   .panel {
-    min-height: 95vh;
+    min-height: 90vh;
   }
+  body,
   .panels {
     min-width: 190vw;
   }
