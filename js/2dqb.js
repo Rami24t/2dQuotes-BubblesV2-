@@ -124,8 +124,9 @@ if(aBubble.style.opacity!="0.4")
   aBubble.style.opacity = "0.4";
 }
 
+let bubblesNumber = bubblesArray.length;
 setInterval(async () => {
-  for (let i = 0; i < bubblesArray.length; i += 1) {
+  for (let i = 0; i < bubblesNumber; i += 1) {
     await delay(222);
     updateBubble(bubblesArray[i]);
     console.log(i);
