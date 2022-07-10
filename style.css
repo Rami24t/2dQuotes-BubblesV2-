@@ -213,11 +213,7 @@ body:active > .c1 {
   }
   body,
   .panel {
-    min-height: 90vh;
-  }
-  body,
-  .panels {
-    min-width: 190vw;
+    height: 96vh;
   }
   /* html {
     position: relative;
