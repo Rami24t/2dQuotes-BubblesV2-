@@ -10,65 +10,65 @@ document.querySelector("#music-1").volume = 0.2;
 const popSFX1 = new Audio('./Audio/pop9.mp3');
 const popSFX2 = new Audio('./Audio/pop4.mp3');
 let popSFX = popSFX1;
+
+
 const movedCursor = (e) => {
   const mouseY = e.clientY;
   const mouseX = e.clientX;
   c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
   c2.style.transform = c1.style.transform;
   bubblesArray.forEach(element => {
-if(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2 -Math.abs(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2 ))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 -  Math.abs(Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2  ))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) )
-{
-if(Math.random()>0.5)
-popSFX= popSFX1;
-else
-popSFX= popSFX2;
-if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/4)
-popSFX.volume = Math.random()*0.25;
-else if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/2)
-popSFX.volume = Math.random()*0.25+0.25;
-else if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/1.5)
-popSFX.volume = Math.random()*0.25+0.5;
-else
-popSFX.volume = Math.random()*0.25+0.75;
-popSFX.play();
-element.style.transform = '';
-element.style.width = element.style.height = "0px";
-element.style.opacity = '0';
-element.style.display = "none";
-}
+    if (Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width / 2 - Math.abs(Math.abs(c1.getBoundingClientRect().x) + c1.getBoundingClientRect().width / 2))) < (element.getBoundingClientRect().width / 4.8 < 9 ? 9 : element.getBoundingClientRect().width / 4.8) && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y) + element.getBoundingClientRect().height / 2 - Math.abs(Math.abs(c1.getBoundingClientRect().y) + c1.getBoundingClientRect().height / 2))) < (element.getBoundingClientRect().width / 4.8 < 9 ? 9 : element.getBoundingClientRect().width / 4.8)) {
+      if (Math.random() > 0.5)
+        popSFX = popSFX1;
+      else
+        popSFX = popSFX2;
+      if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 4)
+        popSFX.volume = Math.random() * 0.25 + 0.01;
+      else if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 2)
+        popSFX.volume = Math.random() * 0.25 + 0.25;
+      else if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 1.5)
+        popSFX.volume = Math.random() * 0.25 + 0.5;
+      else
+        popSFX.volume = Math.random() * 0.25 + 0.75;
+      popSFX.play();
+      element.style.transform = '';
+      element.style.width = element.style.height = "0px";
+      element.style.opacity = '0';
+      element.style.display = "none";
+    }
   });
 };
 
 const movedTouch = (e) => {
   const mouseY = e.changedTouches[0].clientY;
   const mouseX = e.changedTouches[0].clientX;
-c2.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-bubblesArray.forEach(element => {
-// console.log(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2, Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2);
-// console.log(mouseX, mouseY);
-e.preventDefault();
-// 10 , 7 
-    if(Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width/2 -Math.abs(mouseX))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y)+element.getBoundingClientRect().height/2 -  Math.abs(mouseY))) < (element.getBoundingClientRect().width/4.8 < 9 ? 9 : element.getBoundingClientRect().width/4.8) )
-  {
-  if(Math.random()>0.5)
-  popSFX= popSFX1;
-  else
-  popSFX= popSFX2;
-  if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/4)
-  popSFX.volume = Math.random()*0.25+0.01;
-  else if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/2)
-  popSFX.volume = Math.random()*0.25+0.25;
-  else if(element.style.width.substring(0,element.style.width.indexOf('vmin'))<30/1.5)
-  popSFX.volume = Math.random()*0.25+0.5;
-  else
-  popSFX.volume = Math.random()*0.25+0.75;
-  popSFX.play();
-  element.style.transform = '';
-  element.style.width = element.style.height = "0px";
-  element.style.opacity = '0';
-  element.style.display = "none";
-  }
-    });
+  c2.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+  bubblesArray.forEach(element => {
+    // console.log(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2, Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2);
+    // console.log(mouseX, mouseY);
+    e.preventDefault();
+    // 10 , 7 
+    if (Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width / 2 - Math.abs(mouseX))) < (element.getBoundingClientRect().width / 4.8 < 9 ? 9 : element.getBoundingClientRect().width / 4.8) && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y) + element.getBoundingClientRect().height / 2 - Math.abs(mouseY))) < (element.getBoundingClientRect().width / 4.8 < 9 ? 9 : element.getBoundingClientRect().width / 4.8)) {
+      if (Math.random() > 0.5)
+        popSFX = popSFX1;
+      else
+        popSFX = popSFX2;
+      if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 4)
+        popSFX.volume = Math.random() * 0.25 + 0.01;
+      else if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 2)
+        popSFX.volume = Math.random() * 0.25 + 0.25;
+      else if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 1.5)
+        popSFX.volume = Math.random() * 0.25 + 0.5;
+      else
+        popSFX.volume = Math.random() * 0.25 + 0.75;
+      popSFX.play();
+      element.style.transform = '';
+      element.style.width = element.style.height = "0px";
+      element.style.opacity = '0';
+      element.style.display = "none";
+    }
+  });
 };
 // let startmove = document.querySelector('.panel');
 // let startx = 0;
@@ -100,10 +100,12 @@ e.preventDefault();
 function updateSize() {
   c3.style.width = `${Math.round(Math.random() * 80)}vmin`;
   c3.style.height = c3.style.width;
-  c3.style.transform = `translate3d(${Math.round(Math.random() * 40  )}vmax, ${Math.round(Math.random() * 40)}vmin,0)`;
+  c3.style.transform = `translate3d(${Math.round(Math.random() * 40)}vmax, ${Math.round(Math.random() * 40)}vmin,0) rotate(${Math.round(Math.random() * 360)}deg)`;
   c2.style.transition = `all ${Math.round(Math.random() * 50000)}ms`;
-  document.querySelector("#music-1").volume = (Math.random()/5);
+  document.querySelector("#music-1").volume = (Math.random() / 5);
 }
+for (i = 0; i < 12; i++)
+  c3.appendChild(document.createElement('div'));
 
 setInterval(updateSize, 10000);
 
@@ -111,17 +113,18 @@ setInterval(updateSize, 10000);
 // Bubbles
 const bubblesArray = [].slice.call(document.querySelectorAll(".bubble"));
 
-const delay = async (ms = 222) =>  new Promise((resolve) => setTimeout(resolve, ms));
+
+const delay = async (ms = 222) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function updateBubble(aBubble) {
-  if(aBubble.style.display != '')
-   aBubble.style.display = '';
+  if (aBubble.style.display != '')
+    aBubble.style.display = '';
   aBubble.style.height = aBubble.style.width = `${Math.round(Math.random() * 30)}vmin`;
   aBubble.style.transform = `translate3d(${(Math.round(Math.random() * 110)).toString().padStart(3)}vmax, ${(Math.round(Math.random() * 110)).toString().padStart(3)}vmin,0)`;
-  aBubble.style.backgroundColor = `rgba(${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.random()/1.4})`;
-//  console.log(aBubble.style.backgroundColor);
-if(aBubble.style.opacity!="0.4")
-  aBubble.style.opacity = "0.4";
+  aBubble.style.backgroundColor = `rgba(${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.random() / 1.4})`;
+  //  console.log(aBubble.style.backgroundColor);
+  if (aBubble.style.opacity != "0.4")
+    aBubble.style.opacity = "0.4";
 }
 
 let bubblesNumber = bubblesArray.length;
@@ -129,25 +132,23 @@ setInterval(async () => {
   for (let i = 0; i < bubblesNumber; i += 1) {
     await delay(222);
     updateBubble(bubblesArray[i]);
-    console.log(i);
-}
+    //    console.log(i);
+  }
 }, 22000);
 
-function substringV2(ts , stringA , stringB) {
-  ts.toString();  
-  let a= ts.indexOf(stringA || '(');
-  let b= ts.indexOf(stringB || 'vmax');
-  return ts.substring(a+1,b).trim();
-  }
+function substringV2(ts, stringA, stringB) {
+  ts.toString();
+  let a = ts.indexOf(stringA || '(');
+  let b = ts.indexOf(stringB || 'vmax');
+  return ts.substring(a + 1, b).trim();
+}
 
 
-  if( ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0) )
-  {
-    bubblesArray.splice(0,57);
-    window.addEventListener("touchmove", movedTouch);
-  }
-else
-  {
-//  bubblesArray.splice(0,57);
+if (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)) {
+  bubblesArray.splice(0, 57);
+  window.addEventListener("touchmove", movedTouch);
+}
+else {
+  //  bubblesArray.splice(0,57);
   window.addEventListener("mousemove", movedCursor);
-  }
+}

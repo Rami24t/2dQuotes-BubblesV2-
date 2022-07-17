@@ -161,10 +161,75 @@ body:active > .c1 {
     rgba(0, 0, 255, 0)
   );
   filter: blur(0.05vmax);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
-#music-1 {
-  transition: all 10s;
+.c3 div {
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  filter: invert(1) blur(2px);
+  background: inherit;
+  opacity: 0.3;
+  border: 0.5px solid rgba(0, 0, 0, 0.4);
 }
+.c3 div:nth-child(1) {
+  position: absolute;
+  top: 50%;
+}
+.c3 div:nth-child(2) {
+  position: absolute;
+  top: -50%;
+}
+.c3 div:nth-child(3) {
+  position: absolute;
+  top: 25%;
+  left: 43.38%;
+}
+.c3 div:nth-child(4) {
+  position: absolute;
+  top: 25%;
+  left: -43.38%;
+}
+.c3 div:nth-child(5) {
+  position: absolute;
+  top: -25%;
+  left: 43.38%;
+}
+.c3 div:nth-child(6) {
+  position: absolute;
+  top: -25%;
+  left: -43.38%;
+}
+.c3 div:nth-child(7) {
+  position: absolute;
+  left: 86.7%;
+}
+.c3 div:nth-child(8) {
+  position: absolute;
+  left: -86.7%;
+}
+.c3 div:nth-child(9) {
+  position: absolute;
+  left: 43.38%;
+  top: 75%;
+}
+.c3 div:nth-child(10) {
+  position: absolute;
+  left: 43.38%;
+  top: -75%;
+}
+.c3 div:nth-child(11) {
+  position: absolute;
+  left: -43.38%;
+  top: 75%;
+}
+.c3 div:nth-child(12) {
+  position: absolute;
+  left: -43.38%;
+  top: -75%;
+}
+
 .bubble {
   min-height: 2px;
   pointer-events: none;
@@ -174,7 +239,7 @@ body:active > .c1 {
   width: 2px;
   height: 2px;
   transition: all 22s;
-  filter: blur(0.1vmax);
+  filter: blur(0.1vmax) brightness(1.2);
   border-radius: 50%;
   opacity: 0;
   position: absolute;
@@ -187,6 +252,7 @@ body:active > .c1 {
     ),
     #29412c2c;
 }
+
 @media only screen and (hover: none) and (pointer: coarse) and (max-height: 620px) {
   .panels:hover .panel:not(.panel:hover) {
     filter: blur(0.1vmax) sepia(40%);
