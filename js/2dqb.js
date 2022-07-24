@@ -1,7 +1,6 @@
 document.querySelector("body").style.cursor = "none";
 
 // document.querySelector("body").append("");
-
 const c1 = document.querySelector(".c1");
 const c2 = document.querySelector(".c2");
 const c3 = document.querySelector(".c3");
@@ -9,6 +8,9 @@ const bubble = document.querySelector(".bubble");
 document.querySelector("#music-1").volume = 0.2;
 const popSFX1 = new Audio('./Audio/pop9.mp3');
 const popSFX2 = new Audio('./Audio/pop4.mp3');
+const ramiNameAudio = new Audio('https://www.babynamespedia.com/a/p/Rami.hu.z2YgYw6Qyo27qLVFnYFqmLsfjRXm_MB-.mp3');
+const al = new Audio('https://www.babynamespedia.com/a/p/Al.de.NfPHJNYq0GC-FrB2DLTm03AQMbvgbBqD.mp3');
+const saadi = new Audio('https://www.babynamespedia.com/a/p/Saadi.pt.qrZXf63oQ-Awr1g9EgC4rSVj7lj1nQsS.mp3');
 let popSFX = popSFX1;
 
 
@@ -23,8 +25,17 @@ const movedCursor = (e) => {
         popSFX = popSFX1;
       else
         popSFX = popSFX2;
-      if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 4)
+      if (element.style.width.substring(0, element.style.width.indexOf('vmin')) > 29)
+        ramiNameAudio.play();
+      else if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 2) {
+        al.play();
+        al.onended = function () {
+          saadi.play();
+        };
+      }
+      if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 4) {
         popSFX.volume = Math.random() * 0.25 + 0.01;
+      }
       else if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 2)
         popSFX.volume = Math.random() * 0.25 + 0.25;
       else if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 1.5)

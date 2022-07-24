@@ -347,6 +347,7 @@ footer {
   animation: roll 200s linear infinite, animate-footer 5s 3s 1 backwards;
   color: #000;
   letter-spacing: 2px;
+  min-width: max-content;
 }
 footer::before {
   content: "''Life is ... . .....'' ~ Webpage digital Art. Crafted and presented to you by";
