@@ -361,15 +361,22 @@ footer a {
   color: rgb(18, 28, 45);
   text-decoration: wavy underline dotted double darkblue;
 }
-@keyframes roll {
+/* @keyframes roll {
   from {
     left: 0%;
   }
   to {
     left: 110%;
   }
+} */
+@keyframes roll {
+  from {
+    left: -10%;
+  }
+  to {
+    left: 85%;
+  }
 }
-
 .panels {
   animation: come-in 4s ease 1 backwards, fade-in 4s 4s backwards;
 }

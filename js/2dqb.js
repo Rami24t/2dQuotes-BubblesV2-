@@ -146,7 +146,13 @@ setInterval(async () => {
     //    console.log(i);
   }
 }, 22000);
-
+setInterval(() => {
+  let p = Math.ceil(Math.random() * 5);
+  p = '.panel' + p;
+  let panel = document.querySelectorAll(p)[0];
+  console.log('p:', p, ' prw3:', Math.round(panel.getBoundingClientRect().width * 3));
+  panel.style.backgroundImage = "url(https://source.unsplash.com/" + Math.round(window.innerWidth / 2) + "x" + Math.round(panel.getBoundingClientRect().height) + (p.endsWith('1') ? '' : (p.endsWith('2') ? '?universe' : (p.endsWith('3') ? '?work' : (p.endsWith('4') ? '?candle' : '?dream')))) + ")";
+}, 120000)
 function substringV2(ts, stringA, stringB) {
   ts.toString();
   let a = ts.indexOf(stringA || '(');
