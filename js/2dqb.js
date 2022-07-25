@@ -1,171 +1,163 @@
-document.querySelector("body").style.cursor = "none";
+// by Rami Al-Saadi 2022 ©
 
-// document.querySelector("body").append("");
-const c1 = document.querySelector(".c1");
-const c2 = document.querySelector(".c2");
-const c3 = document.querySelector(".c3");
-const bubble = document.querySelector(".bubble");
-document.querySelector("#music-1").volume = 0.2;
-const popSFX1 = new Audio('./Audio/pop9.mp3');
-const popSFX2 = new Audio('./Audio/pop4.mp3');
-const ramiNameAudio = new Audio('https://www.babynamespedia.com/a/p/Rami.hu.z2YgYw6Qyo27qLVFnYFqmLsfjRXm_MB-.mp3');
-const al = new Audio('https://www.babynamespedia.com/a/p/Al.de.NfPHJNYq0GC-FrB2DLTm03AQMbvgbBqD.mp3');
-const saadi = new Audio('https://www.babynamespedia.com/a/p/Saadi.pt.qrZXf63oQ-Awr1g9EgC4rSVj7lj1nQsS.mp3');
-let popSFX = popSFX1;
+function main() {
+  document.querySelector("body").style.cursor = "none";
+  // document.querySelector("body").append("");
+  const c1 = document.querySelector(".c1");
+  const c2 = document.querySelector(".c2");
+  const c3 = document.querySelector(".c3");
+  const bubble = document.querySelector(".bubble");
+  const footerA = document.querySelector("footer a");
+  document.querySelector("#music-1").volume = 0.2;
+  const popSFX1 = new Audio('./Audio/pop9.mp3');
+  const popSFX2 = new Audio('./Audio/pop4.mp3');
+  const ramiNameAudio = new Audio('https://www.babynamespedia.com/a/p/Rami.hu.z2YgYw6Qyo27qLVFnYFqmLsfjRXm_MB-.mp3');
+  const al = new Audio('https://www.babynamespedia.com/a/p/Al.de.NfPHJNYq0GC-FrB2DLTm03AQMbvgbBqD.mp3');
+  const saadi = new Audio('https://www.babynamespedia.com/a/p/Saadi.pt.qrZXf63oQ-Awr1g9EgC4rSVj7lj1nQsS.mp3');
+  let popSFX = popSFX1;
+  footerA.onmouseenter = () => { ramiNameAudio.play(); setTimeout(() => al.play(), 900); setTimeout(() => saadi.play(), 1400); };
 
-
-const movedCursor = (e) => {
-  const mouseY = e.clientY;
-  const mouseX = e.clientX;
-  c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-  c2.style.transform = c1.style.transform;
-  bubblesArray.forEach(element => {
-    if (Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width / 2 - Math.abs(Math.abs(c1.getBoundingClientRect().x) + c1.getBoundingClientRect().width / 2))) < (element.getBoundingClientRect().width / 4.8 < 9 ? 9 : element.getBoundingClientRect().width / 4.8) && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y) + element.getBoundingClientRect().height / 2 - Math.abs(Math.abs(c1.getBoundingClientRect().y) + c1.getBoundingClientRect().height / 2))) < (element.getBoundingClientRect().width / 4.8 < 9 ? 9 : element.getBoundingClientRect().width / 4.8)) {
-      if (Math.random() > 0.5)
-        popSFX = popSFX1;
-      else
-        popSFX = popSFX2;
-      if (element.style.width.substring(0, element.style.width.indexOf('vmin')) > 29)
-        ramiNameAudio.play();
-      else if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 2) {
-        al.play();
-        al.onended = function () {
-          saadi.play();
-        };
+  function movedCursor(e) {
+    const mouseY = e.clientY;
+    const mouseX = e.clientX;
+    c2.style.transform = c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    bubblesArray.forEach(element => {
+      let eBCR = element.getBoundingClientRect();
+      let eBCRW = eBCR.width;
+      let eWidth = element.style.width;
+      if (Math.round(Math.abs(Math.abs(eBCR.x) + eBCRW / 2 - Math.abs(Math.abs(c1.getBoundingClientRect().x) + c1.getBoundingClientRect().width / 2))) < (eBCRW / 4.8 < 9 ? 9 : eBCRW / 4.8) && Math.round(Math.abs(Math.abs(eBCR.y) + eBCR.height / 2 - Math.abs(Math.abs(c1.getBoundingClientRect().y) + c1.getBoundingClientRect().height / 2))) < (eBCRW / 4.8 < 9 ? 9 : eBCRW / 4.8)) {
+        if (Math.random() > 0.5)
+          popSFX = popSFX1;
+        else
+          popSFX = popSFX2;
+        if (eWidth.substring(0, eWidth.indexOf('vmin')) > 29)
+          ramiNameAudio.play();
+        else if (eWidth.substring(0, eWidth.indexOf('vmin')) < 2) {
+          al.play();
+          setTimeout(() => saadi.play(), 1000);
+        }
+        if (eWidth.substring(0, eWidth.indexOf('vmin')) < 30 / 4) {
+          popSFX.volume = Math.random() * 0.25 + 0.01;
+        }
+        else if (eWidth.substring(0, eWidth.indexOf('vmin')) < 30 / 2)
+          popSFX.volume = Math.random() * 0.25 + 0.25;
+        else if (eWidth.substring(0, eWidth.indexOf('vmin')) < 30 / 1.5)
+          popSFX.volume = Math.random() * 0.25 + 0.5;
+        else
+          popSFX.volume = Math.random() * 0.25 + 0.75;
+        popSFX.play();
+        element.style.transform = '';
+        element.style.width = element.style.height = "0px";
+        element.style.opacity = '0';
+        element.style.display = "none";
       }
-      if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 4) {
-        popSFX.volume = Math.random() * 0.25 + 0.01;
-      }
-      else if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 2)
-        popSFX.volume = Math.random() * 0.25 + 0.25;
-      else if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 1.5)
-        popSFX.volume = Math.random() * 0.25 + 0.5;
-      else
-        popSFX.volume = Math.random() * 0.25 + 0.75;
-      popSFX.play();
-      element.style.transform = '';
-      element.style.width = element.style.height = "0px";
-      element.style.opacity = '0';
-      element.style.display = "none";
-    }
-  });
-};
-
-const movedTouch = (e) => {
-  const mouseY = e.changedTouches[0].clientY;
-  const mouseX = e.changedTouches[0].clientX;
-  c2.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-  bubblesArray.forEach(element => {
-    // console.log(Math.abs(c1.getBoundingClientRect().x)+c1.getBoundingClientRect().width/2, Math.abs(c1.getBoundingClientRect().y)+c1.getBoundingClientRect().height/2);
-    // console.log(mouseX, mouseY);
-    e.preventDefault();
-    // 10 , 7 
-    if (Math.round(Math.abs(Math.abs(element.getBoundingClientRect().x) + element.getBoundingClientRect().width / 2 - Math.abs(mouseX))) < (element.getBoundingClientRect().width / 4.8 < 9 ? 9 : element.getBoundingClientRect().width / 4.8) && Math.round(Math.abs(Math.abs(element.getBoundingClientRect().y) + element.getBoundingClientRect().height / 2 - Math.abs(mouseY))) < (element.getBoundingClientRect().width / 4.8 < 9 ? 9 : element.getBoundingClientRect().width / 4.8)) {
-      if (Math.random() > 0.5)
-        popSFX = popSFX1;
-      else
-        popSFX = popSFX2;
-      if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 4)
-        popSFX.volume = Math.random() * 0.25 + 0.01;
-      else if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 2)
-        popSFX.volume = Math.random() * 0.25 + 0.25;
-      else if (element.style.width.substring(0, element.style.width.indexOf('vmin')) < 30 / 1.5)
-        popSFX.volume = Math.random() * 0.25 + 0.5;
-      else
-        popSFX.volume = Math.random() * 0.25 + 0.75;
-      popSFX.play();
-      element.style.transform = '';
-      element.style.width = element.style.height = "0px";
-      element.style.opacity = '0';
-      element.style.display = "none";
-    }
-  });
-};
-// let startmove = document.querySelector('.panel');
-// let startx = 0;
-// let starty = 0;
-// let dist = 0;
-// startmove.addEventListener("touchstart", function(eve){
-//   let touchobj = eve.changedTouches[0]; // erster Finger
-//   startx = parseInt(touchobj.clientX); // X/Y-Koordinaten relativ zum Viewport
-//   starty = parseInt(touchobj.clientY);
-//   moves.innerHTML = "touchstart bei ClientX: " + startx + "px ClientY: " + starty + "px";
-//   eve.preventDefault();
-// });
-// eve.changedTouches[0]
-// startmove.addEventListener("touchmove", function(eve){
-//   let touchobj = eve.changedTouches[0]; // erster Finger
-//   let distx = parseInt(touchobj.clientX) - startx;
-//   let disty = parseInt(touchobj.clientY) - starty;
-//   moves.innerHTML = "touchmove horizontal: " + distx + "px vertikal: " + disty + "px";  
-//   eve.preventDefault();
-// });
-// startmove.addEventListener("touchend", function(eve){
-//   let touchobj = eve.changedTouches[0]; // reference first touch point for this event
-//   moves.innerHTML = "touchend bei X-Koordinate: " + touchobj.clientX + "px Y-Koordinate: " + touchobj.clientY + "px";
-//   eve.preventDefault();
-// });
-
-
-
-function updateSize() {
-  c3.style.width = `${Math.round(Math.random() * 80)}vmin`;
-  c3.style.height = c3.style.width;
-  c3.style.transform = `translate3d(${Math.round(Math.random() * 40)}vmax, ${Math.round(Math.random() * 40)}vmin,0) rotate(${Math.round(Math.random() * 360)}deg)`;
-  c2.style.transition = `all ${Math.round(Math.random() * 50000)}ms`;
-  document.querySelector("#music-1").volume = (Math.random() / 5);
-}
-for (i = 0; i < 12; i++)
-  c3.appendChild(document.createElement('div'));
-
-setInterval(updateSize, 10000);
-
-
-// Bubbles
-const bubblesArray = [].slice.call(document.querySelectorAll(".bubble"));
-
-
-const delay = async (ms = 222) => new Promise((resolve) => setTimeout(resolve, ms));
-
-async function updateBubble(aBubble) {
-  if (aBubble.style.display != '')
-    aBubble.style.display = '';
-  aBubble.style.height = aBubble.style.width = `${Math.round(Math.random() * 30)}vmin`;
-  aBubble.style.transform = `translate3d(${(Math.round(Math.random() * 110)).toString().padStart(3)}vmax, ${(Math.round(Math.random() * 110)).toString().padStart(3)}vmin,0)`;
-  aBubble.style.backgroundColor = `rgba(${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.random() / 1.4})`;
-  //  console.log(aBubble.style.backgroundColor);
-  if (aBubble.style.opacity != "0.4")
-    aBubble.style.opacity = "0.4";
-}
-
-let bubblesNumber = bubblesArray.length;
-setInterval(async () => {
-  for (let i = 0; i < bubblesNumber; i += 1) {
-    await delay(222);
-    updateBubble(bubblesArray[i]);
-    //    console.log(i);
+    });
   }
-}, 22000);
-setInterval(() => {
-  let p = Math.ceil(Math.random() * 5);
-  p = '.panel' + p;
-  let panel = document.querySelectorAll(p)[0];
-  console.log('p:', p, ' prw3:', Math.round(panel.getBoundingClientRect().width * 3));
-  panel.style.backgroundImage = "url(https://source.unsplash.com/" + Math.round(window.innerWidth / 2) + "x" + Math.round(panel.getBoundingClientRect().height) + (p.endsWith('1') ? '' : (p.endsWith('2') ? '?universe' : (p.endsWith('3') ? '?work' : (p.endsWith('4') ? '?candle' : '?dream')))) + ")";
-}, 120000)
-function substringV2(ts, stringA, stringB) {
-  ts.toString();
-  let a = ts.indexOf(stringA || '(');
-  let b = ts.indexOf(stringB || 'vmax');
-  return ts.substring(a + 1, b).trim();
-}
+
+  function movedTouch(e) {
+    const mouseY = e.changedTouches[0].clientY;
+    const mouseX = e.changedTouches[0].clientX;
+    c2.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    bubblesArray.forEach(element => {
+      e.preventDefault();
+      let eBCR = element.getBoundingClientRect();
+      let eBCRW = eBCR.width;
+      let eWidth = element.style.width;
+      if (Math.round(Math.abs(Math.abs(eBCR.x) + eBCRW / 2 - Math.abs(mouseX))) < (eBCRW / 4.8 < 9 ? 9 : eBCRW / 4.8) && Math.round(Math.abs(Math.abs(eBCR.y) + eBCR.height / 2 - Math.abs(mouseY))) < (eBCRW / 4.8 < 9 ? 9 : eBCRW / 4.8)) {
+        if (Math.random() > 0.5)
+          popSFX = popSFX1;
+        else
+          popSFX = popSFX2;
+        if (eWidth.substring(0, eWidth.indexOf('vmin')) > 29)
+          ramiNameAudio.play();
+        else if (eWidth.substring(0, eWidth.indexOf('vmin')) < 2) {
+          al.play();
+          al.onended = function () {
+            saadi.play();
+          };
+        }
+        if (eWidth.substring(0, eWidth.indexOf('vmin')) < 30 / 4) {
+          popSFX.volume = Math.random() * 0.25 + 0.01;
+        }
+        else if (eWidth.substring(0, eWidth.indexOf('vmin')) < 30 / 2)
+          popSFX.volume = Math.random() * 0.25 + 0.25;
+        else if (eWidth.substring(0, eWidth.indexOf('vmin')) < 30 / 1.5)
+          popSFX.volume = Math.random() * 0.25 + 0.5;
+        else
+          popSFX.volume = Math.random() * 0.25 + 0.75;
+        popSFX.play();
+        element.style.transform = '';
+        element.style.width = element.style.height = "0px";
+        element.style.opacity = '0';
+        element.style.display = "none";
+      }
+    });
+  }
+
+  function updateSize() {
+    c3.style.width = `${Math.round(Math.random() * 80)}vmin`;
+    c3.style.height = c3.style.width;
+    c3.style.transform = `translate3d(${Math.round(Math.random() * 40)}vmax, ${Math.round(Math.random() * 40)}vmin,0) rotate(${Math.round(Math.random() * 360)}deg)`;
+    c2.style.transition = `all ${Math.round(Math.random() * 50000)}ms`;
+    document.querySelector("#music-1").volume = (Math.random() / 5);
+  }
+  function c3append() {
+    for (i = 0; i < 12; i++)
+      c3.appendChild(document.createElement('div'));
+  }
+  c3append();
+
+  setInterval(updateSize, 10000);
 
 
-if (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)) {
-  bubblesArray.splice(0, 57);
-  window.addEventListener("touchmove", movedTouch);
+  // Bubbles
+  const bubblesArray = [].slice.call(document.querySelectorAll(".bubble"));
+  async function delay(ms = 222) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+  async function updateBubble(aBubble) {
+    if (aBubble.style.display != '')
+      aBubble.style.display = '';
+    aBubble.style.height = aBubble.style.width = `${Math.round(Math.random() * 30)}vmin`;
+    aBubble.style.transform = `translate3d(${(Math.round(Math.random() * 110)).toString().padStart(3)}vmax, ${(Math.round(Math.random() * 110)).toString().padStart(3)}vmin,0)`;
+    aBubble.style.backgroundColor = `rgba(${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.random() / 1.4})`;
+    if (aBubble.style.opacity != "0.4")
+      aBubble.style.opacity = "0.4";
+  }
+  let bubblesNumber = bubblesArray.length;
+  async function feedUpdateBubble() {
+    for (let i = 0; i < bubblesNumber; i += 1) {
+      await delay(222);
+      updateBubble(bubblesArray[i]);
+    }
+  }
+  setInterval(feedUpdateBubble, 22000);
+  function updatePanel() {
+    let p = Math.ceil(Math.random() * 5);
+    p = '.panel' + p;
+    let panel = document.querySelector(p);
+    panel.style.backgroundImage = "url(https://source.unsplash.com/" + Math.round(window.innerWidth / 2) + "x" + Math.round(panel.getBoundingClientRect().height) + (p.endsWith('1') ? '' : (p.endsWith('2') ? '?universe' : (p.endsWith('3') ? '?work' : (p.endsWith('4') ? '?candle' : '?dream')))) + ")";
+  }
+  setInterval(updatePanel, 120000);
+
+  if (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)) {
+    bubblesArray.splice(0, 57);
+    window.addEventListener("touchmove", movedTouch);
+  }
+  else {
+    //  bubblesArray.splice(0,57);
+    window.addEventListener("mousemove", movedCursor);
+  }
 }
-else {
-  //  bubblesArray.splice(0,57);
-  window.addEventListener("mousemove", movedCursor);
-}
+// call the main function
+main();
+// by Rami Al-Saadi 2022 ©
+
+
+// drafts area
+//function substringV2(ts, stringA, stringB) {
+//   ts.toString();
+//   let a = ts.indexOf(stringA || '(');
+//   let b = ts.indexOf(stringB || 'vmax');
+//   return ts.substring(a + 1, b).trim();
+// }
