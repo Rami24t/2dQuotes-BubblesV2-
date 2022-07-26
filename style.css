@@ -361,7 +361,7 @@ footer::before {
 }
 footer a {
   color: rgb(18, 28, 45);
-  text-decoration: wavy underline dotted double darkblue;
+  text-decoration: underline dotted darkblue;
 }
 /* @keyframes roll {
   from {
