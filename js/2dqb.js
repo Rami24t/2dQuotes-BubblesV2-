@@ -7,8 +7,8 @@ async function updateBubble(aBubble) {
   if (aBubble.style.display != '')
     aBubble.style.display = '';
   aBubble.style.height = aBubble.style.width = `${Math.round(Math.random() * 30)}vmin`;
-  console.log(aBubble.style.transform = `translate3d(${(Math.round(Math.random() * 110)).toString().padStart(3)}vmax, ${(Math.round(Math.random() * 110)).toString().padStart(3)}vmin,0)`);
-  console.log(aBubble.style.backgroundColor = `rgba(${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${(Math.random() / 1.4).toFixed(3)})`);
+  aBubble.style.transform = `translate3d(${(Math.round(Math.random() * 110)).toString().padStart(3)}vmax, ${(Math.round(Math.random() * 110)).toString().padStart(3)}vmin,0)`;
+  aBubble.style.backgroundColor = `rgba(${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${(Math.random() / 1.4).toFixed(3)})`;
   if (aBubble.style.opacity != "0.4")
     aBubble.style.opacity = "0.4";
 }
@@ -132,7 +132,7 @@ function main() {
   async function bubbleFeeder() {
     for (let i = 0; i < bubblesNumber; i += 1) {
       await delay(222);
-      console.log(i + 1, '/', bubblesNumber);
+      // console.log(i + 1, '/', bubblesNumber);
       updateBubble(bubblesArray[i]);
     }
   }
