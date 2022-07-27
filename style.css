@@ -46,19 +46,19 @@ body:active > .c1 {
   font-size: 1vmax;
 }
 .panel1 {
-  background-image: url(https://source.unsplash.com/1501x1501);
+  background-image: url(https://source.unsplash.com/1101x1101);
 }
 .panel2 {
-  background-image: url(https://source.unsplash.com/1400x1400?universe);
+  background-image: url(https://source.unsplash.com/1100x1100?universe);
 }
 .panel3 {
-  background-image: url(https://source.unsplash.com/1450x1451?work);
+  background-image: url(https://source.unsplash.com/1150x1151?work);
 }
 .panel4 {
-  background-image: url(https://source.unsplash.com/1460x1460?candle);
+  background-image: url(https://source.unsplash.com/1160x1160?candle);
 }
 .panel5 {
-  background-image: url(https://source.unsplash.com/1501x1500?dream);
+  background-image: url(https://source.unsplash.com/1101x1100?dream);
 }
 .panel > p {
   text-transform: uppercase;

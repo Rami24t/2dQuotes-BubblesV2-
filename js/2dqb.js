@@ -6,7 +6,7 @@ async function delay(ms = 222) {
 async function updateBubble(aBubble) {
   if (aBubble.style.display != '')
     aBubble.style.display = '';
-  aBubble.style.height = aBubble.style.width = `${Math.round(Math.random() * 30)}vmin`;
+  aBubble.style.height = aBubble.style.width = `${(Math.random() * 30).toFixed(2)}vmin`;
   aBubble.style.transform = `translate3d(${(Math.round(Math.random() * 110)).toString().padStart(3)}vmax, ${(Math.round(Math.random() * 110)).toString().padStart(3)}vmin,0)`;
   aBubble.style.backgroundColor = `rgba(${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${(Math.random() / 1.4).toFixed(3)})`;
   if (aBubble.style.opacity != "0.4")
@@ -16,11 +16,12 @@ function updatePanel() {
   let p = Math.ceil(Math.random() * 5);
   p = '.panel' + p;
   let panel = document.querySelector(p);
-  panel.style.backgroundImage = "url(https://source.unsplash.com/" + Math.round(window.innerWidth / 2) + "x" + Math.round(panel.getBoundingClientRect().height) + (p.endsWith('1') ? '' : (p.endsWith('2') ? '?universe' : (p.endsWith('3') ? '?work' : (p.endsWith('4') ? '?candle' : '?dream')))) + ")";
+  panel.style.backgroundImage = "url(https://source.unsplash.com/" + Math.round(window.innerWidth / 1.8) + "x" + Math.round(panel.getBoundingClientRect().height) + (p.endsWith('1') ? '' : (p.endsWith('2') ? '?universe' : (p.endsWith('3') ? '?work' : (p.endsWith('4') ? '?candle' : '?dream')))) + ")";
+  panel.style.flex = '0'; setTimeout(() => panel.style.flex = '', 2000);
 }
 function main() {
   document.querySelector("body").style.cursor = "none";
-  // document.querySelector("body").append("");
+  bubblesAppend();
   const c1 = document.querySelector(".c1");
   const c2 = document.querySelector(".c2");
   const c3 = document.querySelector(".c3");
@@ -33,7 +34,7 @@ function main() {
   const saadi = new Audio('https://www.babynamespedia.com/a/p/Saadi.pt.qrZXf63oQ-Awr1g9EgC4rSVj7lj1nQsS.mp3');
   let popSFX = popSFX1;
   footerA.onmouseenter = () => { ramiNameAudio.play(); setTimeout(() => al.play(), 900); setTimeout(() => saadi.play(), 1400); };
-  c3append();
+  c3Append();
   setInterval(update10, 10000);
   // Bubbles
   const bubblesArray = [].slice.call(document.querySelectorAll(".bubble"));
@@ -41,9 +42,13 @@ function main() {
   let bubblesNumber = bubblesArray.length;
   const bubbleFeederInterval = (240) * bubblesNumber;
   setInterval(bubbleFeeder, bubbleFeederInterval);
+  //  bubbleFeeder();
   setInterval(updatePanel, 120000);
 
-  function c3append() {
+  function bubblesAppend() {
+    document.body.innerHTML = document.body.innerHTML.replace('<div class="bubble b1"></div>', '<div class="bubble"></div>'.repeat(91));
+  }
+  function c3Append() {
     for (i = 0; i < 12; i++)
       c3.appendChild(document.createElement('div'));
   }
