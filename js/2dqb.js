@@ -19,6 +19,7 @@ function updatePanel() {
   panel.style.backgroundImage = "url(https://source.unsplash.com/" + Math.round(window.innerWidth / 1.8) + "x" + Math.round(panel.getBoundingClientRect().height) + (p.endsWith('1') ? '' : (p.endsWith('2') ? '?universe' : (p.endsWith('3') ? '?work' : (p.endsWith('4') ? '?candle' : '?dream')))) + ")";
   panel.style.flex = '0'; setTimeout(() => panel.style.flex = '', 2000);
 }
+
 function main() {
   document.querySelector("body").style.cursor = "none";
   bubblesAppend();
@@ -52,15 +53,12 @@ function main() {
     for (i = 0; i < 12; i++)
       c3.appendChild(document.createElement('div'));
   }
-  function movedCursor(e) {
-    const mouseY = e.clientY;
-    const mouseX = e.clientX;
-    c2.style.transform = c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+  function popBubble(mouseX, mouseY) {
     bubblesArray.forEach(element => {
       let eBCR = element.getBoundingClientRect();
-      let eBCRW = eBCR.width;
+      let eBCRWidth = eBCR.width;
       let eWidth = element.style.width;
-      if (Math.round(Math.abs(Math.abs(eBCR.x) + eBCRW / 2 - Math.abs(Math.abs(c1.getBoundingClientRect().x) + c1.getBoundingClientRect().width / 2))) < (eBCRW / 4.8 < 9 ? 9 : eBCRW / 4.8) && Math.round(Math.abs(Math.abs(eBCR.y) + eBCR.height / 2 - Math.abs(Math.abs(c1.getBoundingClientRect().y) + c1.getBoundingClientRect().height / 2))) < (eBCRW / 4.8 < 9 ? 9 : eBCRW / 4.8)) {
+      if (Math.round(Math.abs(Math.abs(eBCR.x) + eBCRWidth / 2 - Math.abs(mouseX))) < (eBCRWidth / 4.8 < 9 ? 9 : eBCRWidth / 4.8) && Math.round(Math.abs(Math.abs(eBCR.y) + eBCR.height / 2 - Math.abs(mouseY))) < (eBCRWidth / 4.8 < 9 ? 9 : eBCRWidth / 4.8)) {
         if (Math.random() > 0.5)
           popSFX = popSFX1;
         else
@@ -88,44 +86,18 @@ function main() {
       }
     });
   }
+  function movedCursor(e) {
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    c2.style.transform = c1.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    popBubble(mouseX, mouseY);
+  }
   function movedTouch(e) {
-    const mouseY = e.changedTouches[0].clientY;
     const mouseX = e.changedTouches[0].clientX;
+    const mouseY = e.changedTouches[0].clientY;
     c2.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-    bubblesArray.forEach(element => {
-      e.preventDefault(); // // //
-      let eBCR = element.getBoundingClientRect();
-      let eBCRW = eBCR.width;
-      let eWidth = element.style.width;
-      if (Math.round(Math.abs(Math.abs(eBCR.x) + eBCRW / 2 - Math.abs(mouseX))) < (eBCRW / 4.8 < 9 ? 9 : eBCRW / 4.8) && Math.round(Math.abs(Math.abs(eBCR.y) + eBCR.height / 2 - Math.abs(mouseY))) < (eBCRW / 4.8 < 9 ? 9 : eBCRW / 4.8)) {
-        if (Math.random() > 0.5)
-          popSFX = popSFX1;
-        else
-          popSFX = popSFX2;
-        if (eWidth.substring(0, eWidth.indexOf('vmin')) > 29)
-          ramiNameAudio.play();
-        else if (eWidth.substring(0, eWidth.indexOf('vmin')) < 2) {
-          al.play();
-          al.onended = function () {
-            saadi.play();
-          };
-        }
-        if (eWidth.substring(0, eWidth.indexOf('vmin')) < 30 / 4) {
-          popSFX.volume = Math.random() * 0.25 + 0.01;
-        }
-        else if (eWidth.substring(0, eWidth.indexOf('vmin')) < 30 / 2)
-          popSFX.volume = Math.random() * 0.25 + 0.25;
-        else if (eWidth.substring(0, eWidth.indexOf('vmin')) < 30 / 1.5)
-          popSFX.volume = Math.random() * 0.25 + 0.5;
-        else
-          popSFX.volume = Math.random() * 0.25 + 0.75;
-        popSFX.play();
-        element.style.transform = '';
-        element.style.width = element.style.height = "0px";
-        element.style.opacity = '0';
-        element.style.display = "none";
-      }
-    });
+    //       e.preventDefault();
+    popBubble(mouseX, mouseY);
   }
   function update10() {
     c3.style.width = `${Math.round(Math.random() * 80)}vmin`;
