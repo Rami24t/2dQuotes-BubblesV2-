@@ -7,7 +7,8 @@ async function updateBubble(aBubble) {
   if (aBubble.style.display != '')
     aBubble.style.display = '';
   aBubble.style.height = aBubble.style.width = `${(Math.random() * 30).toFixed(2)}vmin`;
-  aBubble.style.transform = `translate3d(${(Math.round(Math.random() * 110)).toString().padStart(3)}vmax, ${(Math.round(Math.random() * 110)).toString().padStart(3)}vmin,0)`;
+  // aBubble.style.transform = `translate3d(${(Math.round(Math.random() * 110)).toString().padStart(3)}vmax, ${(Math.round(Math.random() * 110)).toString().padStart(3)}vmin,0)`;
+  aBubble.style.transform = `translate3d(${(Math.round(Math.random() * 110)).toString().padStart(3)}vw, ${(Math.round(Math.random() * 110)).toString().padStart(3)}vh,0)`;
   aBubble.style.backgroundColor = `rgba(${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${(Math.random() / 1.4).toFixed(3)})`;
   if (aBubble.style.opacity != "0.4")
     aBubble.style.opacity = "0.4";
