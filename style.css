@@ -259,90 +259,6 @@ body:active > .c1 {
     #29412c2c;
 }
 
-@media only screen and (hover: none) and (pointer: coarse) and (max-height: 620px) {
-  .panels:hover .panel:not(.panel:hover) {
-    filter: blur(0.1vmax) sepia(40%);
-  }
-  .c1 {
-    display: none;
-  }
-  .c1::before {
-    display: none;
-  }
-  .c2 {
-    opacity: 0.1;
-  }
-}
-@media screen and (hover: none) and (orientation: portrait) and (pointer: coarse) {
-  .c1 {
-    display: none;
-  }
-  .c1::before {
-    display: none;
-  }
-  .c2 {
-    opacity: 0.1;
-  }
-  /* body,
-  .panel {
-    height: 96vh;
-  } */
-  /* html {
-    position: relative;
-  }
-  body {
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    width: 100vmax;
-    height: 100vmin;
-    position: fixed;
-    top: 100%;
-    left: 0;
-    cursor: auto !important;
-  }
-
-  body::after {
-    color: rgb(255, 0, 0);
-    content: "Please rotate screen. \A \a View in landscape mode.";
-    white-space: pre;
-    font-size: 8vmin;
-    font-weight: bold;
-    border: 1px solid rgba(255, 0, 0, 0.5);
-    position: absolute;
-    top: 0%;
-    right: 0;
-    bottom: 0%;
-    left: 0%;
-    width: 100vmax;
-    height: 100vmin;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transform: rotate(90deg);
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: rgba(0, 0, 0, 0.7);
-    animation: rotate-scrn 10s infinite alternate;
-    pointer-events: none;
-  }
-  @keyframes rotate-scrn {
-    100% {
-      transform: rotate(170deg);
-      opacity: 0;
-    }
-    48%,
-    52% {
-      opacity: 1;
-      transform: rotate(90deg);
-    }
-    0% {
-      transform: rotate(10deg);
-      opacity: 0;
-    }
-  }
-   */
-}
-
 footer {
   position: fixed;
   bottom: 0%;
@@ -433,4 +349,88 @@ footer a {
     font-size: 1.1vw;
     /* font-size: 1.1vmax; */
   }
+}
+
+@media only screen and (hover: none) and (pointer: coarse) and (max-height: 620px) {
+  .panels:hover .panel:not(.panel:hover) {
+    filter: blur(0.1vmax) sepia(40%);
+  }
+  .c1 {
+    display: none;
+  }
+  .c1::before {
+    display: none;
+  }
+  .c2 {
+    opacity: 0.1;
+  }
+}
+@media screen and (hover: none) and (orientation: portrait) and (pointer: coarse) {
+  .c1 {
+    display: none;
+  }
+  .c1::before {
+    display: none;
+  }
+  .c2 {
+    opacity: 0.1;
+  }
+  /* body,
+  .panel {
+    height: 96vh;
+  } */
+  /* html {
+    position: relative;
+  }
+  body {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vmax;
+    height: 100vmin;
+    position: fixed;
+    top: 100%;
+    left: 0;
+    cursor: auto !important;
+  }
+
+  body::after {
+    color: rgb(255, 0, 0);
+    content: "Please rotate screen. \A \a View in landscape mode.";
+    white-space: pre;
+    font-size: 8vmin;
+    font-weight: bold;
+    border: 1px solid rgba(255, 0, 0, 0.5);
+    position: absolute;
+    top: 0%;
+    right: 0;
+    bottom: 0%;
+    left: 0%;
+    width: 100vmax;
+    height: 100vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: rotate(90deg);
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: rotate-scrn 10s infinite alternate;
+    pointer-events: none;
+  }
+  @keyframes rotate-scrn {
+    100% {
+      transform: rotate(170deg);
+      opacity: 0;
+    }
+    48%,
+    52% {
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+    0% {
+      transform: rotate(10deg);
+      opacity: 0;
+    }
+  }
+   */
 }
