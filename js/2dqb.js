@@ -13,8 +13,24 @@ async function updateBubble(aBubble) {
   if (aBubble.style.opacity != "0.4")
     aBubble.style.opacity = "0.4";
 }
+function activateRandomPanel(n) {
+  let p = '.panel';
+  switch (n) {
+    case 4:
+      n = 2;
+      break;
+    case 6:
+      n = 4;
+      break;
+  }
+  p += n;
+  randomPanel = document.querySelector(p);
+  randomPanel.classList.add("active");
+  setTimeout(() => randomPanel.classList.remove("active"), 2000);
+}
 function updatePanel() {
   let p = Math.ceil(Math.random() * 5);
+  activateRandomPanel(p + 1);
   p = '.panel' + p;
   let panel = document.querySelector(p);
   panel.style.backgroundImage = "url(https://source.unsplash.com/" + Math.round(window.innerWidth / 1.8) + "x" + Math.round(panel.getBoundingClientRect().height) + (p.endsWith('1') ? '' : (p.endsWith('2') ? '?universe' : (p.endsWith('3') ? '?work' : (p.endsWith('4') ? '?candle' : '?dream')))) + ")";
