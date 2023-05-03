@@ -33,7 +33,7 @@ function updatePanel() {
   activateRandomPanel(p + 1);
   p = '.panel' + p;
   let panel = document.querySelector(p);
-  panel.style.backgroundImage = "url(https://source.unsplash.com/" + Math.round(window.innerWidth / 1.8) + "x" + Math.round(panel.getBoundingClientRect().height) + (p.endsWith('1') ? '' : (p.endsWith('2') ? '?universe' : (p.endsWith('3') ? '?work' : (p.endsWith('4') ? '?candle' : '?dream')))) + ")";
+  panel.style.backgroundImage = "url(https://source.unsplash.com/" + Math.round(window.innerWidth / 1.8) + "x" + Math.round(panel.getBoundingClientRect().height) + (p.endsWith('1') ? '?life' : (p.endsWith('2') ? '?universe' : (p.endsWith('3') ? '?work' : (p.endsWith('4') ? '?candle' : '?dream')))) + ")";
   panel.style.flex = '0'; setTimeout(() => panel.style.flex = '', 2000);
 }
 
@@ -54,6 +54,7 @@ function main() {
   footerA.onmouseenter = () => { ramiNameAudio.play(); setTimeout(() => al.play(), 900); setTimeout(() => saadi.play(), 1400); };
   c3Append();
   setInterval(update10, 10000);
+  let bubblesPopped = { xs: 0, m: 0, l: 0, xl: 0, duration: '00:00', ppm: 0, initialTime: 0, timer: 0 , startTimer() {this.initialTime= new performance(); this.timer = this.duration= this.timer - this.initialTime} };
   // Bubbles
   const bubblesArray = [].slice.call(document.querySelectorAll(".bubble"));
   move();
@@ -71,6 +72,9 @@ function main() {
       c3.appendChild(document.createElement('div'));
   }
   function popBubble(mouseX, mouseY) {
+//    if (bubblesPopped.duration === '00:00')
+//      bubblesPopped.startTimer();
+
     bubblesArray.forEach(element => {
       let eBCR = element.getBoundingClientRect();
       let eBCRWidth = eBCR.width;
@@ -88,13 +92,20 @@ function main() {
         }
         if (eWidth.substring(0, eWidth.indexOf('vmin')) < 30 / 4) {
           popSFX.volume = Math.random() * 0.25 + 0.01;
+          bubblesPopped.xs++;
         }
-        else if (eWidth.substring(0, eWidth.indexOf('vmin')) < 30 / 2)
+        else if (eWidth.substring(0, eWidth.indexOf('vmin')) < 30 / 2) {
           popSFX.volume = Math.random() * 0.25 + 0.25;
-        else if (eWidth.substring(0, eWidth.indexOf('vmin')) < 30 / 1.5)
+          bubblesPopped.m++;
+        }
+        else if (eWidth.substring(0, eWidth.indexOf('vmin')) < 30 / 1.5) {
           popSFX.volume = Math.random() * 0.25 + 0.5;
-        else
+          bubblesPopped.l++;
+        }
+        else {
           popSFX.volume = Math.random() * 0.25 + 0.75;
+          bubblesPopped.xl++;
+        }
         popSFX.play();
         element.style.transform = '';
         element.style.width = element.style.height = "0px";
