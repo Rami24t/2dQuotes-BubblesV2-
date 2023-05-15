@@ -21,6 +21,10 @@ https://rami24t.github.io/2dQuotes-BubblesV2-/
 Snapshot image from 18.06.2022:
 <img title="Snapshot from 18.06" alt="Snapshot  image from 18-06" src="Screenshot from 2022-06-18 18-49-08.png">
 
+Snapshot image from 05.2023:
+![2D-Quotes - Bubbles](https://github.com/Rami24t/2dQuotes-BubblesV2-/assets/103028944/e931f14d-b551-44bb-a00d-4c5f4c2050ac)
+
+
 # 2D Quotes - Version 0.8
 
 ## Pure CSS/HTML 2D quotes that show up when user clicks on each word.
