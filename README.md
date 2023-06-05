@@ -16,10 +16,6 @@
 
 https://rami24t.github.io/2dQuotes-BubblesV2-/
 
-## Video
-
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/P4K3K-8_mJo)
-
 
 ## Snapshots
 
@@ -28,6 +24,9 @@ Snapshot image from 18.06.2022:
 
 Snapshot image from 05.2023:
 ![2D-Quotes - Bubbles](https://github.com/Rami24t/2dQuotes-BubblesV2-/assets/103028944/e931f14d-b551-44bb-a00d-4c5f4c2050ac)
+
+## Video
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/P4K3K-8_mJo)
 
 
 # 2D Quotes - Version 0.8
