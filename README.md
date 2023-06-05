@@ -27,7 +27,8 @@ Snapshot image from 05.2023:
 
 ## Video
 
-from 09.2022
+Video capture from 09.2022:
+
 [![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/P4K3K-8_mJo)
 
 
