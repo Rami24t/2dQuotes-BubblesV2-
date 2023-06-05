@@ -16,6 +16,13 @@
 
 https://rami24t.github.io/2dQuotes-BubblesV2-/
 
+## Video
+
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/P4K3K-8_mJo)
+
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/P4K3K-8_mJo" title="relaxing 💖" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 ## Snapshots
 
 Snapshot image from 18.06.2022:
