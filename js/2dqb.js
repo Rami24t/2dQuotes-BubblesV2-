@@ -1,4 +1,4 @@
-// by Rami Al-Saadi 2022 ©
+// by Rami Al-Saadi 2022-2024 ©
 
 async function delay(ms = 222) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -26,15 +26,16 @@ function activateRandomPanel(n) {
   p += n;
   randomPanel = document.querySelector(p);
   randomPanel.classList.add("active");
-  setTimeout(() => randomPanel.classList.remove("active"), 2000);
+  setTimeout(() => randomPanel.classList.remove("active"), 16000); // was 2000
 }
 function updatePanel() {
   let p = Math.ceil(Math.random() * 5);
   activateRandomPanel(p + 1);
   p = '.panel' + p;
   let panel = document.querySelector(p);
-  panel.style.backgroundImage = "url(https://source.unsplash.com/" + Math.round(window.innerWidth / 1.8) + "x" + Math.round(panel.getBoundingClientRect().height) + (p.endsWith('1') ? '?life' : (p.endsWith('2') ? '?universe' : (p.endsWith('3') ? '?work' : (p.endsWith('4') ? '?candle' : '?dream')))) + ")";
-  panel.style.flex = '0'; setTimeout(() => panel.style.flex = '', 2000);
+  // panel.style.backgroundImage = "url(https://source.unsplash.com/" + Math.round(window.innerWidth / 1.8) + "x" + Math.round(panel.getBoundingClientRect().height) + (p.endsWith('1') ? '?life' : (p.endsWith('2') ? '?universe' : (p.endsWith('3') ? '?work' : (p.endsWith('4') ? '?candle' : '?dream')))) + ")";
+  panel.style.backgroundImage = `url("https://image.pollinations.ai/prompt/${(p.endsWith('1') ? 'living-life-beautifully' : (p.endsWith('2') ? 'the-universe' : (p.endsWith('3') ? 'applying-knowledge-in-work' : (p.endsWith('4') ? 'lighting-a-candle' : 'dreaming-freely'))))}?width=${Math.round(window.innerWidth / 1.8)}&height=${Math.round(panel.getBoundingClientRect().height)}&nologo=true&turbo=true&enhance=true&seed=${Math.floor(Math.random()*10000000)}")`;
+  panel.style.flex = '0'; setTimeout(() => panel.style.flex = '', 16000);  // was 2000
 }
 
 function main() {
@@ -155,4 +156,4 @@ function main() {
 // call the main function
 main();
 
-// by Rami Al-Saadi 2022 ©
+// by Rami Al-Saadi 2022-2024 ©

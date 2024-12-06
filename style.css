@@ -52,19 +52,24 @@ body:active > .c1 {
   font-size: 1vmax; */
 }
 .panel1 {
-  background-image: url(https://source.unsplash.com/1101x1101?life);
+  /* background-image: url(https://source.unsplash.com/1101x1101?life); */
+  background-image: url(https://image.pollinations.ai/prompt/living-life-beautifully?width=1101&height=1101&nologo=true&enhance=true&seed=);
 }
 .panel2 {
-  background-image: url(https://source.unsplash.com/1100x1100?universe);
+  /* background-image: url(https://source.unsplash.com/1100x1100?universe); */
+  background-image: url(https://image.pollinations.ai/prompt/all-is-well?width=1100&height=1100&nologo=true&enhance=true&seed=);
 }
 .panel3 {
-  background-image: url(https://source.unsplash.com/1150x1151?work);
+  /* background-image: url(https://source.unsplash.com/1150x1151?work); */
+  background-image: url(https://image.pollinations.ai/prompt/applying-knowledge-in-work?width=1150&height=1151&nologo=true&enhance=true&seed=);
 }
 .panel4 {
-  background-image: url(https://source.unsplash.com/1160x1160?candle);
+  /* background-image: url(https://source.unsplash.com/1160x1160?candle); */
+  background-image: url(https://image.pollinations.ai/prompt/lighting-a-candle?width=1160&height=1160&nologo=true&enhance=true&seed=);
 }
 .panel5 {
-  background-image: url(https://source.unsplash.com/1101x1100?dream);
+  /* background-image: url(https://source.unsplash.com/1101x1100?dream); */
+  background-image: url(https://image.pollinations.ai/prompt/dreaming-freely?width=1102&height=1102&nologo=true&enhance=true&seed=);
 }
 .panel > p {
   text-transform: uppercase;
