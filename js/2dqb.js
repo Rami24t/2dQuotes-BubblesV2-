@@ -54,7 +54,7 @@ function updatePanel() {
       : "dreaming-freely"
   }?width=${Math.round(window.innerWidth / 1.8)}&height=${Math.round(
     panel.getBoundingClientRect().height
-  )}&nologo=true&enhance=true&seed=${Math.floor(Math.random() * 10000000)}")`;
+  )}&nologo=true&model=flux-pro&enhance=true&seed=${Math.floor(Math.random() * 10000000)}")`;
   panel.style.flex = "0";
   setTimeout(() => (panel.style.flex = ""), 16000); // was 2000
 }
